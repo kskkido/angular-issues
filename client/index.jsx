@@ -1,14 +1,28 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+import { AppContainer } from 'react-hot-loader'
+import configureStore from './configureStore'
+import App from './App'
 
-import store from './store'
+const render = (Component) => {
+	ReactDOM.render(
+		<AppContainer>
+			<Provider store={configureStore()}>
+				<BrowserRouter>
+					<Component />
+				</BrowserRouter>
+			</Provider>
+			</AppContainer>
+		, document.getElementById('app')
+	)
+}
 
-import { App } from './app'
+render(App)
 
-render(
-	<Provider store={store}>
-			<App />
-	</Provider>
-	, document.getElementById('app')
-)
+if (module.hot) {
+	console.log(module.hot, 'rerender bitch')
+	/* method suggested in react-hot-module docs did not work */
+	module.hot.accept('./App', () => { render(App) })
+}
