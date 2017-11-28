@@ -1,7 +1,5 @@
 /* eslint-disable global-require, import/no-dynamic-require */
-// define constants such as env
-// module.exports getters that check for environment variables
-// some how make symlink work like bones
+// define custom env constants through env.json file in your computers home directory
 const { join } = require('path')
 const pkg = require('./package.json')
 

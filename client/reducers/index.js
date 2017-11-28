@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import dummy from './dummy'
+import fetch from './fetch'
 
 export default combineReducers({
-	dummy
+	fetch
 })

@@ -6,7 +6,10 @@ const { root, env } = require('./')
 
 const PATHS = {
 	entry: join(root, 'client'),
-	output: join(root, 'dist')
+	output: join(root, 'dist'),
+	components: join(root, 'client/components'),
+	reducers: join(root, 'client/reducers'),
+	utils: join(root, 'client/utils')
 }
 
 const commonConfig = {
@@ -15,6 +18,11 @@ const commonConfig = {
 		filename: 'bundle.js'
 	},
 	resolve: {
+		alias: {
+			Components: PATHS.components,
+			Reducers: PATHS.reducers,
+			Utils: PATHS.utils
+		},
 		extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '*']
 	},
 	module: {
@@ -25,11 +33,6 @@ const commonConfig = {
 			options: {
 				presets: ['react', 'env', 'stage-0']
 			}
-		},
-		{
-			test: /\.ts?x$/,
-			exclude: /(node_modules|bower_components)/,
-			loader: 'awesome-typescript-loader'
 		}]
 	}
 }
