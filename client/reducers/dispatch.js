@@ -1,7 +1,9 @@
+import fetchPage from 'Utils/fetchApi'
 import * as fromFetch from './fetch'
+import * as fromPagination from './pagination'
 
 /* dispatches fetch events along with provided fetchFn */
-const createFetch = (fetchFn, onSuccess) => (...args) => (dispatch, getState) => {
+export const createFetchDispatcher = (fetchFn, onSuccess) => (...args) => (dispatch, getState) => {
 	if (fromFetch.getStatus(getState())) {
 		return Promise.resolve()
 	}
@@ -12,11 +14,16 @@ const createFetch = (fetchFn, onSuccess) => (...args) => (dispatch, getState) =>
 		.then(
 			(res) => {
 				dispatch(onSuccess(res))
-
 				dispatch(fromFetch.successFetch())
 			},
-			error => dispatch(fromFetch.error({ error }))
+			error => dispatch(fromFetch.errorFetch({ error }))
 		)
 }
 
-export default createFetch
+export const fetchIssues = page => createFetchDispatcher(
+	fetchPage,
+	res => fromPagination.receiveItems({
+		page,
+		items: res.data
+	})
+)(page)

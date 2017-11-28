@@ -4,6 +4,10 @@ import current, * as fromCurrent from './current'
 import items, * as fromItems from './items'
 import pages, * as fromPages from './pages'
 
+/* ACTION CREATORS */
+export const { receiveItems } = fromItems
+export const { changePage } = fromCurrent
+
 /* REDUCER */
 const reducer = combineReducers({
 	current,
@@ -14,8 +18,6 @@ const reducer = combineReducers({
 export default reducer
 
 /* GETTER */
-const getState = prop('pagination')
-
-export const getCurrentPage = compose(fromCurrent.getCurrentPage, getState)
-export const getItemById = (state, id) => fromItems.getItemById(getState(state), id)
-export const getByPage = (state, page) => fromPages.getByPage(getState(state), page)
+export const getItemById = (state, id) => fromItems.getItemById(state.items, id)
+export const getPage = (state, page) => fromPages.getPage(state.pages, page)
+export const getCurrentPage = state => getPage(state, fromCurrent.getCurrentPageNumber())

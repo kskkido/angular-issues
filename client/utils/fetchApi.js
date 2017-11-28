@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const fetchPage = (page) => {
 	const limit = 10
-
+	console.log(page, 'yo')
 	return axios.get(`https://api.github.com/repos/angular/protractor/issues?page=${page}&per_page=${limit}`)
 }
 

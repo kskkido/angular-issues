@@ -20,4 +20,4 @@ const reducer = reducerCreator(
 export default reducer
 
 /* GETTER */
-export const getCurrentPage = state => state.current
+export const getCurrentPageNumber = state => state.current

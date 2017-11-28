@@ -1,4 +1,4 @@
-import { reducerCreator } from 'Utils/reducer'
+import { reducerCreator } from 'Utils/reducers'
 import * as fromItems from './items'
 
 /* STATE */
@@ -8,18 +8,18 @@ const initialState = {}
 /* REDUCER HANDLER */
 const handleReceive = (state, action) => ({
 	...state,
-	[action.payload.page]: action.payload.results.map(item => item.id)
+	[action.payload.page]: action.payload.items.map(item => item.id)
 })
 
 /* REDUCER */
 const reducer = reducerCreator(
 	initialState,
 	{
-		[fromItems.receivePages.type]: handleReceive
+		[fromItems.receiveItems.type]: handleReceive
 	}
 )
 
 export default reducer
 
 /* GETTER */
-export const getByPage = (state, page) => state[page]
+export const getPage = (state, page) => state[page]

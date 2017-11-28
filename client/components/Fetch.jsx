@@ -1,37 +1,50 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import WithRender from './WithRender'
+import Error from './Error'
+
+const mapStateToProps = ({ fetch }) => ({ ...fetch })
+
+const StatusProvider = connect(mapStateToProps)(WithRender)
 
 class Fetch extends Component {
 	static propTypes = {
-		children: PropTypes.func.isRequired,
+		children: PropTypes.node.isRequired,
 		fetch: PropTypes.func.isRequired,
-	}
-
-	state = {
-		error: '',
-		payload: null,
+		shouldFetch: PropTypes.bool.isRequired,
 	}
 
 	componentWillMount() {
-		const { fetch } = this.props
+		const { shouldFetch, fetch } = this.props
 
-		fetch()
-			.then(res => this.onSuccess(res))
-			.catch(error => this.onError(error))
+		if (shouldFetch) {
+			fetch()
+		}
 	}
 
-	onSuccess = payload => this.setState(() => ({ payload }))
-
-	onError = error => this.setState(() => ({ error }))
-
 	render() {
-		const { error, payload } = this.state
+		const {
+			children,
+			fetch,
+			shouldFetch,
+		} = this.props
 
-		return this.props.children({
-			error,
-			payload,
-			loading: payload === null
-		})
+		return (
+			<StatusProvider>
+				{({ error, fetching }) => {
+					if (error) {
+						return <Error error={error} onRetry={fetch} />
+					}
+
+					if (shouldFetch || fetching) {
+						return <span>loading</span>
+					}
+
+					return children
+				}}
+			</StatusProvider>
+		)
 	}
 }
 

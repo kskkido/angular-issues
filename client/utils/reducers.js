@@ -7,7 +7,9 @@ export const actionCreator = (type, handlerFn = identity) =>
 	)
 
 export const reducerCreator = (initialState, handlerObj) =>
-	(state, action) =>
-		action.type in handlerObj ?
-			handlerObj[action.type](action) :
+	(state = initialState, action) => {
+
+		return action.type in handlerObj ?
+			handlerObj[action.type](state, action) :
 			state
+	}

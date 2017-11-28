@@ -5,9 +5,9 @@ import {
 } from 'Utils/reducers'
 
 /* ACTION CREATOR */
-const startFetch = actionCreator('FETCH_START')
-const successFetch = actionCreator('FETCH_SUCCESS')
-const errorFetch = actionCreator('FETCH_ERROR')
+export const startFetch = actionCreator('FETCH_START')
+export const successFetch = actionCreator('FETCH_SUCCESS')
+export const errorFetch = actionCreator('FETCH_ERROR')
 
 /* STATE */
 const initialState = {
