@@ -16,8 +16,6 @@ const PATH_STATIC = join(root, 'dist')
 module.exports = app
 	.use(devMiddleware)
 
-	.use(require('morgan')('dev'))
-
 	.use(bodyParser.urlencoded({ extended: false }))
 	.use(bodyParser.json())
 
