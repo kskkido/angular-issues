@@ -60,4 +60,4 @@ module.exports = (() => {
 	Object.assign(User, classMethods)
 
 	return User
-})
+})()

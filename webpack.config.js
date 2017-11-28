@@ -23,7 +23,7 @@ const commonConfig = {
 			exclude: /(node_modules|bower_components)/,
 			loader: 'babel-loader',
 			options: {
-				presets: ['react', 'es2015', 'stage-0']
+				presets: ['react', 'env', 'stage-0']
 			}
 		},
 		{

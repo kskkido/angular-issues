@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
@@ -14,7 +15,7 @@ const render = (Component) => {
 					<Component />
 				</BrowserRouter>
 			</Provider>
-			</AppContainer>
+		</AppContainer>
 		, document.getElementById('app')
 	)
 }
@@ -24,5 +25,5 @@ render(App)
 if (module.hot) {
 	console.log(module.hot, 'rerender bitch')
 	/* method suggested in react-hot-module docs did not work */
-	module.hot.accept('./App', () => { render(App) })
+	module.hot.accept('./App', () => { render(require('./App').default) })
 }
