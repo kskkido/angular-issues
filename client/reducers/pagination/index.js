@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-import { compose, prop } from 'ramda'
 import current, * as fromCurrent from './current'
 import items, * as fromItems from './items'
 import pages, * as fromPages from './pages'

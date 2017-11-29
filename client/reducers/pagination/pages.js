@@ -1,25 +1,39 @@
-import { reducerCreator } from 'Utils/reducers'
-import * as fromItems from './items'
+import { actionCreator, reducerCreator } from 'Utils/reducers'
 
-/* STATE */
-/* will store a list of issue ids at each page */
-const initialState = {}
+export default (endpoint) => {
+	/* ACTION CREATOR */
+	const receiveItems = actionCreator(
+		'PAGES_RECEIVE',
+		(page, items) => ({
+			page,
+			items,
+			endpoint
+		})
+	)
 
-/* REDUCER HANDLER */
-const handleReceive = (state, action) => ({
-	...state,
-	[action.payload.page]: action.payload.items.map(item => item.id)
-})
+	/* will store a list of issue ids at each page */
+	const initialState = {}
 
-/* REDUCER */
-const reducer = reducerCreator(
-	initialState,
-	{
-		[fromItems.receiveItems.type]: handleReceive
+	/* REDUCER HANDLER */
+	const handleReceive = (state, action) => ({
+		...state,
+		[action.payload.page]: action.payload.items.map(item => item.id)
+	})
+
+	/* REDUCER */
+	const reducer = reducerCreator(
+		initialState,
+		{
+			[receiveItems.type]: handleReceive
+		}
+	)
+
+	/* GETTER */
+	const getPage = (state, page) => state[page]
+
+	return {
+		receiveItems,
+		reducer,
+		getPage
 	}
-)
-
-export default reducer
-
-/* GETTER */
-export const getPage = (state, page) => state[page]
+}

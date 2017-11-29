@@ -1,6 +1,7 @@
 import fetchPage from 'Utils/fetchApi'
 import * as fromFetch from './fetch'
 import * as fromPagination from './pagination'
+import issuesPagination from './issues'
 
 /* dispatches fetch events along with provided fetchFn */
 export const createFetchDispatcher = (fetchFn, onSuccess) => (...args) => (dispatch, getState) => {

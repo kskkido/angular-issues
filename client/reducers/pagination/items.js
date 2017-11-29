@@ -2,7 +2,10 @@
 import { actionCreator, reducerCreator } from 'Utils/reducers'
 
 /* ACTION CREATORS */
-export const receiveItems = actionCreator('PAGES_RECEIVE')
+export const receiveItems = actionCreator(
+	'PAGES_RECEIVE',
+	(page, items) => ({ page, items })
+)
 
 /* STATE */
 /* will store issue by id */
@@ -10,7 +13,6 @@ const initialState = {}
 
 /* HANDLE REDUCER */
 const handleReceive = (state, action) => {
-	console.log(action, 'huh')
 	const items = action.payload.items.reduce(
 		(acc, item) => {
 			acc[item.id] = item

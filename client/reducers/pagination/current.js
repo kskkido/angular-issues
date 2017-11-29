@@ -1,19 +1,37 @@
 import { actionCreator, reducerCreator } from 'Utils/reducers'
 
 /* ACTION CREATOR */
-export const changePage = actionCreator('CURRENT_CHANGE')
+export const setCurrent = actionCreator(
+	'SET_CURRENT_AGE',
+	page => ({ key: 'current', page })
+)
+
+export const setNext = actionCreator(
+	'SET_NEXT_PAGE',
+	page => ({ key: 'next', page })
+)
+
+export const setLast = actionCreator(
+	'SET_LAST_PAGE',
+	page => ({ key: 'last', page })
+)
 
 /* STATE */
-const initialState = 1
+const initialState = {}
 
 /* REDUCER HANDLERS */
-const handleChange = (state, action) => action.payload.page
+const handleChange = (state, action) => ({
+	...state,
+	[action.payload.key]: action.payload.page
+})
 
 /* REDUCER */
 const reducer = reducerCreator(
 	initialState,
 	{
-		[changePage.type]: handleChange
+		[setCurrent.type]: handleChange,
+		[setNext.type]: handleChange,
+		[setLast.type]: handleChange
 	}
 )
 

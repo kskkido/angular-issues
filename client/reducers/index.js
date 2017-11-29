@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 
 import fetch from './fetch'
+import issues from './issues'
 import pagination, * as fromPagination from './pagination'
 
 export default combineReducers({
 	fetch,
-	pagination
+	pagination,
+	issues: issues.reducer,
 })
 
 // getters
