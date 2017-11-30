@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux'
+import fetch, * as fromFetch from './fetch'
+import issues, * as fromIssues from './issues'
 
-import fetch from './fetch'
-import issues from './issues'
-import pagination, * as fromPagination from './pagination'
-
+/* ROOT REDUCER */
 export default combineReducers({
 	fetch,
-	pagination,
-	issues: issues.reducer,
+	issues,
 })
 
-// getters
-export const getCurrentPage = state => fromPagination.getCurrentPage(state.pagination)
-export const getItemById = (state, id) => fromPagination.getItemById(state.pagination, id)
-export const getPage = (state, page) => fromPagination.getPage(state.pagination, page)
+/* GETTERS */
+export const getFetchError = (state, endpoint) => fromFetch.getError(state.fetch, endpoint)
+export const getFetchStatus = (state, endpoint) => fromFetch.getStatus(state.fetch, endpoint)
+export const getIssuesByPage = (state, page) => fromIssues.getIssuesByPage(state.issues, page)
+export const getIssueById = (state, id) => fromIssues.getIssueById(state.issues, id)
+export const getLastPage = state => fromIssues.getLastPage(state.issues)

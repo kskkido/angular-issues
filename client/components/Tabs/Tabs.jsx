@@ -1,45 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { identity } from 'ramda'
-import TabList from './TabList'
 
-class Tabs extends Component {
-	static propTypes = {
-		children: PropTypes.node.isRequired,
-		handleClick: PropTypes.func
-	}
+const Tabs = ({ activeIndex, children, handleClick }) => {
+	const renderChildren = React.Children.map(children, (child, i) => {
+		if (child === null) {
+			return null
+		}
 
-	static defaultProps = {
-		handleClick: identity
-	}
+		const active = activeIndex === i
 
-	state = {
-		activeIndex: 0
-	}
+		return React.cloneElement(child, {
+			active,
+			onClick: handleClick ? () => handleClick(i) : null
+		})
+	})
 
-	onChange = (nextIndex, cb = identity) => {
-		const { handleClick } = this.props
+	return renderChildren
+}
 
-		this.setState(
-			() => ({ activeIndex: handleClick(nextIndex) }),
-			cb
-		)
-	}
+Tabs.propTypes = {
+	activeIndex: PropTypes.number.isRequired,
+	children: PropTypes.node.isRequired,
+	handleClick: PropTypes.func
+}
 
-	renderChildren = () => {
-		const { activeIndex } = this.state
-		const { children } = this.props
-
-		return React.Children.map(children, child =>
-			React.cloneElement(child, {
-				activeIndex,
-				handleClick: child.type === TabList ? this.onChange : null,
-			}))
-	}
-
-	render() {
-		return this.renderChildren()
-	}
+Tabs.defaultTyeps = {
+	handleClick: null
 }
 
 export default Tabs

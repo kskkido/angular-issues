@@ -2,10 +2,11 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
+import api from './middleware/api'
 import rootReducer from './reducers'
 
 const configureStore = () => {
-	const middlewares = [thunk]
+	const middlewares = [api, thunk]
 	let applyHandler = applyMiddleware
 
 	if (process.env.NODE_ENV === 'development') {

@@ -1,27 +1,27 @@
-import fetchPage from 'Utils/fetchApi'
-import * as Fetch from 'Reducers/_fetch'
-import Issues from 'Reducers/Issues'
-
-/* should create function that normalizes response */
+import * as issuesActions from 'Actions/issues'
+import * as fetchActions from 'Actions/fetch'
+import { getIssuesByPage, getFetchStatus } from 'Reducers'
+import fetch from './utils'
 
 const apiMiddleware = ({ getState }) => next => (action) => {
-	if (action.type === Issues.requestPage) {
-		const { endpoint, page } = action.payload
-		const state = getState().issues
+	if (action.type === issuesActions.requestApi.type) {
+		const { endpoint, page, schema } = action.payload
+		const state = getState()
 
-		if (Issues.getByPage(state, page)) {
+		/* don't fetch if it already exists or in the middle of fetching */
+		if (getIssuesByPage(state, page) || getFetchStatus(state, endpoint)) {
 			return null
 		}
 
-		next(Fetch.requestFetch(endpoint))
+		next(fetchActions.requestFetch(endpoint))
 
-		return fetchPage(page)
+		return fetch(schema, endpoint)
 			.then(
 				(res) => {
-					next(Issues.receievePages(page, res))
-					next(Fetch.successFetch())
+					next(issuesActions.receivePage(page, res))
+					next(fetchActions.successFetch(endpoint))
 				},
-				error => next(Fetch.failureFetch(error))
+				error => next(fetchActions.failureFetch(error, endpoint))
 			)
 	}
 

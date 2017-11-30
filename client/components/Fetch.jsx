@@ -1,18 +1,31 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import WithRender from './WithRender'
-import Error from './Error'
+import { getFetchError, getFetchStatus } from 'Reducers'
+import WithRedux from './WithRedux'
+import LoadComponent from './Load'
+import ErrorComponent from './Error'
 
-const mapStateToProps = ({ fetch }) => ({ ...fetch })
+const mapStateToProps = (state, { endpoint }) => ({
+	error: getFetchError(state, endpoint),
+	fetching: getFetchStatus(state, endpoint)
+})
 
-const StatusProvider = connect(mapStateToProps)(WithRender)
+const StatusProvider = WithRedux(mapStateToProps)
 
+/* uses endpoint to subscribe to fetch status */
 class Fetch extends Component {
 	static propTypes = {
 		children: PropTypes.node.isRequired,
+		endpoint: PropTypes.string.isRequired,
 		fetch: PropTypes.func.isRequired,
 		shouldFetch: PropTypes.bool.isRequired,
+		RenderError: PropTypes.func,
+		RenderLoad: PropTypes.func
+	}
+
+	static defaultProps = {
+		RenderError: ErrorComponent,
+		RenderLoad: LoadComponent
 	}
 
 	componentWillMount() {
@@ -23,22 +36,31 @@ class Fetch extends Component {
 		}
 	}
 
+	componentWillReceiveProps({ endpoint, fetch, shouldFetch }) {
+		if (shouldFetch && endpoint !== this.props.endpoint) {
+			fetch()
+		}
+	}
+
 	render() {
 		const {
 			children,
+			endpoint,
 			fetch,
 			shouldFetch,
+			RenderError,
+			RenderLoad
 		} = this.props
 
 		return (
-			<StatusProvider>
+			<StatusProvider endpoint={endpoint}>
 				{({ error, fetching }) => {
 					if (error) {
-						return <Error error={error} onRetry={fetch} />
+						return <RenderError error={error} onRetry={fetch} />
 					}
 
 					if (shouldFetch || fetching) {
-						return <span>loading</span>
+						return <RenderLoad />
 					}
 
 					return children
