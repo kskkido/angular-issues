@@ -23,7 +23,10 @@ module.exports = {
 		'import/no-unresolved': 1,
 		'import/no-extraneous-dependencies': 0,
 		'import/prefer-default-export': 0,
-		'no-use-before-define': ['error', { 'functions': false }]
+		'no-use-before-define': ['error', { 'functions': false }],
+		'jsx-a11y/anchor-is-valid': [ 0, {
+			'components': [ 'Link' ],
+		}]
 	},
 	settings: {
 		'import/resolver': 'webpack'

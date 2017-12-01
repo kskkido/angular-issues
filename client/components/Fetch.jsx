@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { getFetchError, getFetchStatus } from 'Reducers'
-import WithRedux from './WithRedux'
-import LoadComponent from './Load'
+import { FetchStatus, DispatchError, merge } from './FromRedux'
+import LoaderComponent from './Loader'
 import ErrorComponent from './Error'
 
-const mapStateToProps = (state, { endpoint }) => ({
-	error: getFetchError(state, endpoint),
-	fetching: getFetchStatus(state, endpoint)
-})
-
-const StatusProvider = WithRedux(mapStateToProps)
+const FetchStatusWithError = merge(FetchStatus, DispatchError)
 
 /* uses endpoint to subscribe to fetch status */
 class Fetch extends Component {
@@ -25,7 +19,7 @@ class Fetch extends Component {
 
 	static defaultProps = {
 		RenderError: ErrorComponent,
-		RenderLoad: LoadComponent
+		RenderLoad: LoaderComponent
 	}
 
 	componentWillMount() {
@@ -53,19 +47,21 @@ class Fetch extends Component {
 		} = this.props
 
 		return (
-			<StatusProvider endpoint={endpoint}>
-				{({ error, fetching }) => {
+			<FetchStatusWithError endpoint={endpoint}>
+				{({ error, fetching, dispatchError }) => {
 					if (error) {
 						return <RenderError error={error} onRetry={fetch} />
 					}
 
 					if (shouldFetch || fetching) {
-						return <RenderLoad />
+						const onTimeout = () => dispatchError('Api call timed out!')
+
+						return <RenderLoad timeout={5000} onTimeout={onTimeout} />
 					}
 
 					return children
 				}}
-			</StatusProvider>
+			</FetchStatusWithError>
 		)
 	}
 }

@@ -11,8 +11,12 @@ const handleReceiveItems = (state = initialState, action) => {
 	const nextState = Object.assign({}, state)
 
 	return result.reduce(
-		(acc, id) => {
-			acc[id] = entities.items[id]
+		(acc, id, i, list) => {
+			acc[id] = {
+				...entities.items[id],
+				previousIssue: list[i - 1],
+				nextIssue: list[i + 1]
+			}
 
 			return acc
 		},

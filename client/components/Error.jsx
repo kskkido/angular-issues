@@ -1,10 +1,37 @@
 import React from 'React'
 import PropTypes from 'prop-types'
+import { Route } from 'react-router-dom'
+import { Button, Divider, Header } from 'semantic-ui-react'
+import Overlay from './Overlay'
 
-const Error = ({ error, onRetry }) => <span>{error}</span>
+const ErrorMessage = ({ error, onRetry }) => (
+	<Route render={({ history }) => (
+		<Overlay>
+			<Header as="h2">
+				Oh no! Its an error!
+				<br />
+				{error}
+			</Header>
+			<Divider section />
+			<Button onClick={() => onRetry()}>
+				Retry that fetch
+			</Button>
+			<Divider hidden />
+			<Button onClick={history.goBack}>
+				Go back
+			</Button>
+		</Overlay>
+	)}
+	/>
+)
 
-Error.propTypes = {
-	error: PropTypes.string.isRequired
+ErrorMessage.propTypes = {
+	error: PropTypes.string.isRequired,
+	onRetry: PropTypes.func
 }
 
-export default Error
+ErrorMessage.defaultProps = {
+	onRetry: null
+}
+
+export default ErrorMessage

@@ -3,6 +3,11 @@ import reducerCreator from 'Reducers/utils'
 import * as fetchActions from 'Actions/fetch'
 import endpointReducer, * as fromEndpoint from './endpoint'
 
+/**
+* Creates a new fetch state for every new endpoint
+* So that we can handle each endpoint request separately
+*/
+
 /* STATE */
 const initialState = {}
 
@@ -29,5 +34,6 @@ const reducer = reducerCreator(
 export default reducer
 
 /* GETTERS */
-export const getStatus = (state, endpoint) => fromEndpoint.getStatus(state[endpoint])
 export const getError = (state, endpoint) => fromEndpoint.getError(state[endpoint])
+export const getStatus = (state, endpoint) => fromEndpoint.getStatus(state[endpoint])
+

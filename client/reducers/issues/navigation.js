@@ -4,7 +4,6 @@ import { receivePage } from 'Actions/issues'
 /* STATE */
 const initialState = {
 	current: 1,
-	next: null,
 	last: null,
 }
 
@@ -15,8 +14,7 @@ const handleNavigation = (state = initialState, action) => {
 	return {
 		...state,
 		current: page,
-		next: +response.next,
-		last:	+response.last
+		last:	Math.max(page, response.last)
 	}
 }
 

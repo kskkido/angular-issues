@@ -10,6 +10,7 @@ const PATHS = {
 	actions: join(root, 'client/actions'),
 	components: join(root, 'client/components'),
 	reducers: join(root, 'client/reducers'),
+	styles: join(root, 'client/styles'),
 	utils: join(root, 'client/utils')
 }
 
@@ -23,6 +24,7 @@ const commonConfig = {
 			Actions: PATHS.actions,
 			Components: PATHS.components,
 			Reducers: PATHS.reducers,
+			Styles: PATHS.styles,
 			Utils: PATHS.utils
 		},
 		extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '*']

@@ -1,8 +1,7 @@
 import React from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
-import parse from 'Utils/parse'
 import Issues from './components/Issues'
-// import { Router, Route, Switch, Link } from 'react-router-dom'
+import Issue from './components/Issue'
 
 const App = () => (
 	<Switch>
@@ -10,15 +9,12 @@ const App = () => (
 		<Route
 			exact
 			path="/issues"
-			render={({ location }) => {
-				const page = parse(location.search, 'page')
-
-				return page ?
-					<Issues page={+page} /> :
-					<Redirect to="/issues?page=1" />
-			}}
+			component={Issues}
 		/>
-		<Route path="/issues/:id" component={Issues} />
+		<Route
+			path="/issue/:id"
+			component={Issue}
+		/>
 	</Switch>
 )
 

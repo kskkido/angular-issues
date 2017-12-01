@@ -37,4 +37,4 @@ export default reducer
 
 /* GETTERS */
 export const getError = state => state && state.error
-export const getStatus = state => state && state.fetching
+export const getStatus = state => state && state.status

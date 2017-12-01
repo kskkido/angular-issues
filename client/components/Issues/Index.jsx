@@ -1,17 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Pagination from './Pagination'
-import Panel from './Panel'
+import parse from 'Utils/parse'
+import fetch from 'Utils/fetch'
+import { endpointCreator } from 'Utils/endpoint'
+import { itemListSchema } from 'Actions/issues'
+import { Redirect } from 'react-router-dom'
+import View from './View'
 
-const Issues = ({ page }) => (
-	<div>
-		<Panel page={page} />
-		<Pagination page={page} />
-	</div>
-)
+const Issues = ({ location }) => {
+	const page = parse(location.search, 'page')
+
+	return page && page > 0 ?
+		<View page={+page} /> :
+		<Redirect to="/" />
+}
 
 Issues.propTypes = {
-	page: PropTypes.number.isRequired
+	location: PropTypes.objectOf(PropTypes.any).isRequired
+}
+
+Issues.initialRender = (url) => {
+	const page = parse(url, 'page')
+	const endpoint = endpointCreator(page)
+
+	return fetch(endpoint, itemListSchema)
 }
 
 export default Issues

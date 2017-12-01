@@ -1,7 +1,7 @@
 import * as issuesActions from 'Actions/issues'
 import * as fetchActions from 'Actions/fetch'
 import { getIssuesByPage, getFetchStatus } from 'Reducers'
-import fetch from './utils'
+import fetch from 'Utils/fetch'
 
 const apiMiddleware = ({ getState }) => next => (action) => {
 	if (action.type === issuesActions.requestApi.type) {

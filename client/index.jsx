@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { AppContainer } from 'react-hot-loader'
 import configureStore from './configureStore'
+import ScrollTop from './components/ScrollTop'
 import App from './App'
 
 const store = configureStore()
@@ -13,9 +14,11 @@ const render = (Component) => {
 	ReactDOM.render(
 		<AppContainer>
 			<BrowserRouter>
-				<Provider store={store}>
-					<Component />
-				</Provider>
+				<ScrollTop>
+					<Provider store={store}>
+						<Component />
+					</Provider>
+				</ScrollTop>
 			</BrowserRouter>
 		</AppContainer>
 		, document.getElementById('app')
