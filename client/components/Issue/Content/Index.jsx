@@ -13,9 +13,9 @@ import Title from './Title'
 const Content = ({ issue }) => {
 	const {
 		body,
+		htmlUrl,
 		number,
 		updatedAt,
-		url,
 		user,
 		title,
 	} = issue
@@ -29,7 +29,7 @@ const Content = ({ issue }) => {
 				<Title
 					number={number}
 					updatedAt={updatedAt}
-					url={url}
+					url={htmlUrl}
 					title={title}
 				/>
 				<Divider />

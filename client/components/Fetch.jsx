@@ -56,7 +56,7 @@ class Fetch extends Component {
 					if (shouldFetch || fetching) {
 						const onTimeout = () => dispatchError('Api call timed out!')
 
-						return <RenderLoad timeout={5000} onTimeout={onTimeout} />
+						return <RenderLoad timeout={8000} onTimeout={onTimeout} />
 					}
 
 					return children
