@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { FetchStatus, DispatchError, merge } from './FromRedux'
+import { FetchStatus, DispatchError, merge } from 'Components/FromRedux'
 import LoaderComponent from './Loader'
 import ErrorComponent from './Error'
 
