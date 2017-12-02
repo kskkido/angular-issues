@@ -1,7 +1,7 @@
 import { normalize } from 'normalizr'
 import camelize from 'camelize'
 import axios from 'axios'
-import parse from './parse'
+import parse from 'Utils/parse'
 
 const empty = data =>
 	data === undefined ||

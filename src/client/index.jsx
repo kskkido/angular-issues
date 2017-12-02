@@ -1,14 +1,16 @@
-/* eslint-disable global-require */
+/* eslint-disable no-underscore-dangle */
+/* global window */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { AppContainer } from 'react-hot-loader'
-import configureStore from './configureStore'
-import ScrollTop from './components/ScrollTop'
-import App from './App'
+import configureStore from 'Common/configureStore'
+import ScrollTop from 'Components/ScrollTop'
+import App from 'Common/App'
 
-const store = configureStore()
+console.log(window.__initialState__, 'INITIAL STTE')
+const store = configureStore(window.__initialState__)
 
 const render = (Component) => {
 	ReactDOM.render(
@@ -30,5 +32,5 @@ render(App)
 if (module.hot) {
 	console.log(module.hot, 'rerender bitch')
 	/* method suggested in react-hot-module docs did not work */
-	module.hot.accept('./App', () => { render(require('./App').default) })
+	module.hot.accept('Common/App', () => { render(require('Common/App').default) })
 }

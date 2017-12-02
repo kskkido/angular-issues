@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import parse from 'Utils/parse'
-import fetch from 'Utils/fetch'
-import { endpointCreator } from 'Utils/endpoint'
-import { itemListSchema } from 'Actions/issues'
+import { requestApi } from 'Actions/issues'
 import { Redirect } from 'react-router-dom'
 import View from './View'
 
@@ -19,11 +17,12 @@ Issues.propTypes = {
 	location: PropTypes.objectOf(PropTypes.any).isRequired
 }
 
-Issues.initialRender = (url) => {
+Issues.initialAction = (url) => {
 	const page = parse(url, 'page')
-	const endpoint = endpointCreator(page)
 
-	return fetch(endpoint, itemListSchema)
+	return page && page > 0 ?
+		requestApi(page) :
+		Promise.resolve()
 }
 
 export default Issues

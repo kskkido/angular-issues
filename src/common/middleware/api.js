@@ -1,7 +1,7 @@
 import * as issuesActions from 'Actions/issues'
 import * as fetchActions from 'Actions/fetch'
 import { getIssuesByPage, getFetchStatus } from 'Reducers'
-import fetch from 'Utils/fetch'
+import fetch from './utils'
 
 const apiMiddleware = ({ getState }) => next => (action) => {
 	if (action.type === issuesActions.requestApi.type) {
@@ -10,7 +10,7 @@ const apiMiddleware = ({ getState }) => next => (action) => {
 
 		/* don't fetch if it already exists or in the middle of fetching */
 		if (getIssuesByPage(state, page) || getFetchStatus(state, endpoint)) {
-			return null
+			return Promise.resolve()
 		}
 
 		next(fetchActions.requestFetch(endpoint))
