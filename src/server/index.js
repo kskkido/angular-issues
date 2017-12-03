@@ -1,4 +1,4 @@
-import { join } from 'path'
+import { resolve } from 'path'
 import { port, root } from 'Root'
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -6,7 +6,7 @@ import ssr from './ssr'
 
 const app = express()
 
-const PATH_STATIC = join(root, '/dist')
+const PATH_STATIC = resolve(root, '/dist')
 
 export default app
 	.use(bodyParser.urlencoded({ extended: false }))

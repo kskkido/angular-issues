@@ -849,7 +849,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 
-var PATH_STATIC = (0, _path.join)(_Root.root, '/dist');
+var PATH_STATIC = (0, _path.resolve)(_Root.root, '/dist');
 
 exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use('/public', _express2.default.static(PATH_STATIC)).get('/', function (req, res) {
 	res.redirect('/issues?page=1');
