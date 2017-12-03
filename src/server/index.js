@@ -2,7 +2,6 @@ import { join } from 'path'
 import { port, root } from 'Root'
 import express from 'express'
 import bodyParser from 'body-parser'
-import devMiddleware from './dev'
 import ssr from './ssr'
 
 const app = express()
