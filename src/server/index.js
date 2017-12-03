@@ -2,6 +2,7 @@ import { join } from 'path'
 import { port, root } from 'Root'
 import express from 'express'
 import bodyParser from 'body-parser'
+import dev from './dev'
 import ssr from './ssr'
 
 const app = express()
@@ -9,6 +10,8 @@ const app = express()
 const PATH_STATIC = join(root, '/dist')
 
 export default app
+	.use(dev)
+
 	.use(bodyParser.urlencoded({ extended: false }))
 	.use(bodyParser.json())
 
