@@ -22,11 +22,11 @@ const createHtml = ({ css, initialState, markup }) => {
 			<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>
 			${css}
 			<script>window.__INITIAL_STATE__=${serializedState}</script>
+			<script async defer src="bundle.js"></script>
 			<title>angular-issues</title>
 		</head>
 		<body>
 			<div id="app">${markup}</div>
-			<script src="bundle.js"></script>
 		</body>
 	</html>
 	`
