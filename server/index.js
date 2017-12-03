@@ -849,7 +849,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 
-var PATH_STATIC = (0, _path.join)(_Root.root, 'dist');
+var PATH_STATIC = (0, _path.join)(_Root.root, '/dist');
+console.log(Object({"NODE_ENV":"production"}).CWD, PATH_STATIC);
 
 exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use(_express2.default.static(PATH_STATIC)).get('/', function (req, res) {
 	res.redirect('/issues?page=1');
@@ -936,7 +937,7 @@ module.exports = {
 	get port() {
 		return env.PORT || 1337;
 	},
-	root: process.cwd(),
+	root: Object({"NODE_ENV":"production"}).CWD || process.cwd(),
 	package: pkg,
 	env: env
 };

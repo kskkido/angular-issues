@@ -6,7 +6,7 @@ import ssr from './ssr'
 
 const app = express()
 
-const PATH_STATIC = join(root, 'dist')
+const PATH_STATIC = join(root, '/dist')
 
 export default app
 	.use(bodyParser.urlencoded({ extended: false }))
