@@ -6,7 +6,7 @@ import ssr from './ssr'
 
 const app = express()
 
-const PATH_STATIC = path.join(__dirname, '..', 'dist')
+const PATH_STATIC = path.join(__dirname, '..', '/dist')
 console.log(__dirname, path.join(__dirname, '/dist'))
 
 export default app
