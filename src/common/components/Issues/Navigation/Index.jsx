@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { LastPage } from 'Components/FromRedux'
 import List from './List'
 
-const Tabs = ({ page }) => (
+/* redirects to root if query does not contain page property */
+const Navigation = ({ page }) => (
 	<LastPage>
 		{({ lastPage }) => lastPage !== null && (
 			<List
@@ -14,8 +15,8 @@ const Tabs = ({ page }) => (
 	</LastPage>
 )
 
-Tabs.propTypes = {
+Navigation.propTypes = {
 	page: PropTypes.number.isRequired
 }
 
-export default Tabs
+export default Navigation

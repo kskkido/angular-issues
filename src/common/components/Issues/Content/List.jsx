@@ -12,10 +12,15 @@ const List = ({ endpoint, fetch, numbers }) => {
 	))
 
 	return [
-		<Header as="h3" attached="top">
+		<Header
+			key="header"
+			as="h3"
+			attached="top"
+		>
 			Whats wrong with Angular
 		</Header>,
 		<Fetch
+			key="fetch"
 			endpoint={endpoint}
 			fetch={fetch}
 			shouldFetch={numbers.length === 0}

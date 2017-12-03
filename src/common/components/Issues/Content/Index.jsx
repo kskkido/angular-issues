@@ -6,7 +6,7 @@ import List from './List'
 
 const IssuesByPageWithRequest = merge(IssuesByPage, DispatchRequest)
 
-const Body = ({ page }) => {
+const Content = ({ page }) => {
 	const endpoint = pageEndpoint(page)
 
 	return (
@@ -22,8 +22,8 @@ const Body = ({ page }) => {
 	)
 }
 
-Body.propTypes = {
+Content.propTypes = {
 	page: PropTypes.number.isRequired
 }
 
-export default Body
+export default Content

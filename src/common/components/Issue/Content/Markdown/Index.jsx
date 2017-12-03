@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import Url from './Url'
 import Code from './Code'
 
+/* parses jekyll into pure react components */
 const Markdown = ({ source }) => (
 	<ReactMarkdown
 		source={source}

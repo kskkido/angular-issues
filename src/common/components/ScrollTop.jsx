@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
+/* custom scroll to the top of viewport on every udpate */
 class ScrollTop extends Component {
 	static propTypes = {
 		children: PropTypes.node.isRequired,

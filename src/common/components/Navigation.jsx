@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Menu } from 'semantic-ui-react'
 import { Navigation as Container } from 'Styles/base'
 
+/* used as navigation view component */
 const Navigation = ({ children }) => (
 	<Container>
 		<Menu>

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
 import PropTypes from 'prop-types'
 import paginate from 'Utils/paginate'
@@ -9,9 +10,9 @@ const localEndpoint = page => `/issues?page=${page}`
 const List = ({ currentPage, lastPage }) => {
 	const labels = paginate(currentPage, lastPage)
 
-	const Links = labels.map(label => (
+	const Links = labels.map((label, i) => (
 		<Link
-			key={Math.random()}
+			key={`${label}_${i}`}
 			active={currentPage === label}
 			disabled={label === null}
 			to={localEndpoint(label)}

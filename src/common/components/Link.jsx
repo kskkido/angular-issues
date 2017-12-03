@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 
+/* custom link used in navigation components */
 const SemanticLink = ({
 	children,
 	active,

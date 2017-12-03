@@ -5,6 +5,7 @@ import { requestPage } from 'Actions/api'
 import { Redirect } from 'react-router-dom'
 import View from './View'
 
+/* redirects to root if query does not contain page property */
 const Issues = ({ location }) => {
 	const page = parse(location.search, 'page')
 
