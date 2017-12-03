@@ -25,7 +25,7 @@ const createHtml = ({ css, initialState, markup }) => {
 		</head>
 		<body>
 			<div id="app">${markup}</div>
-			<script src="bundle.js"></script>
+			<script src="bundle.js.gz"></script>
 		</body>
 	</html>
 	`
