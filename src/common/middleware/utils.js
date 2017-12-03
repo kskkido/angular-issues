@@ -43,6 +43,8 @@ const fetch = (schema, endpoint) =>
 				return Promise.reject(new Error('No such api endpoint'))
 			}
 
+			console.log(response, "DNFOISDFODIJFOSIDJFODIJFOSIDJFOIDSJFOIDSJFO")
+
 			const last = getLastPage(response)
 			const camelized = camelize(response.data)
 

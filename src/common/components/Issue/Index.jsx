@@ -1,21 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { issueEndpoint } from 'Utils/endpoint'
+import { requestIssue } from 'Actions/api'
 import { Redirect } from 'react-router-dom'
-import { IssueById } from 'Components/FromRedux'
+import { IssueByNumber } from 'Components/FromRedux'
 import View from './View'
 
 const Issue = ({ match }) => {
-	const { id } = match.params
+	const { number } = match.params
 
 	return (
-		<IssueById id={id}>
+		<IssueByNumber number={number}>
 			{({ issue }) =>
 				issue ?
 					<View issue={issue} /> :
 					<Redirect to="/" />
 			}
-		</IssueById>
+		</IssueByNumber>
 	)
 }
 
@@ -23,8 +23,11 @@ Issue.propTypes = {
 	match: PropTypes.objectOf(PropTypes.any).isRequired
 }
 
-Issue.initialRender = (url) => {
+Issue.initialAction = (url) => {
+	const index = url.search(/\/\d+/)
+	const issueNumber = url.slice(index + 1)
 
+	return requestIssue(issueNumber || '')
 }
 
 export default Issue

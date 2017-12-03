@@ -1,5 +1,3 @@
-import React from 'react'
-import { Redirect } from 'react-router-dom'
 import Issues from './components/Issues'
 import Issue from './components/Issue'
 
@@ -9,7 +7,7 @@ const routes = [
 		component: Issues,
 	},
 	{
-		path: '/issue/:id',
+		path: '/issue/:number',
 		component: Issue
 	}
 ]

@@ -1,12 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-	Container,
-	Divider,
-	Header,
-	Segment
-} from 'semantic-ui-react'
-import { Content as _Container } from 'Styles/base'
+import { Container, Divider } from 'semantic-ui-react'
 import Article from './Article'
 import Title from './Title'
 
@@ -21,25 +15,23 @@ const Content = ({ issue }) => {
 	} = issue
 
 	return (
-		<Segment raised>
-			<Container
-				as={_Container}
-				text
-			>
-				<Title
-					number={number}
-					updatedAt={updatedAt}
-					url={htmlUrl}
-					title={title}
-				/>
-				<Divider />
-				<Article
-					source={body}
-					user={user}
-				/>
-				<Divider />
-			</Container>
-		</Segment>
+		<Container
+			text
+		>
+			<Divider hidden />
+			<Title
+				number={number}
+				updatedAt={updatedAt}
+				url={htmlUrl}
+				title={title}
+			/>
+			<Divider />
+			<Article
+				source={body}
+				user={user}
+			/>
+			<Divider />
+		</Container>
 	)
 }
 

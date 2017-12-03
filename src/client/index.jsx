@@ -9,11 +9,12 @@ import configureStore from 'Common/configureStore'
 import ScrollTop from 'Components/ScrollTop'
 import App from 'Common/App'
 
-console.log(window.__initialState__, 'INITIAL STTE')
-const store = configureStore(window.__initialState__)
+const store = configureStore(window.__INITIAL_STATE__)
 
-const render = (Component) => {
-	ReactDOM.render(
+delete window.__INITIAL_STATE__
+
+const hydrate = (Component) => {
+	ReactDOM.hydrate(
 		<AppContainer>
 			<BrowserRouter>
 				<ScrollTop>
@@ -27,10 +28,9 @@ const render = (Component) => {
 	)
 }
 
-render(App)
+hydrate(App)
 
 if (module.hot) {
-	console.log(module.hot, 'rerender bitch')
 	/* method suggested in react-hot-module docs did not work */
-	module.hot.accept('Common/App', () => { render(require('Common/App').default) })
+	module.hot.accept('Common/App', () => { hydrate(require('Common/App').default) })
 }

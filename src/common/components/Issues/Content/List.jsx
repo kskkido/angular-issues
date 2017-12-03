@@ -1,44 +1,38 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Header, Segment } from 'semantic-ui-react'
-import { Content as Container } from 'Styles/base'
 import Fetch from 'Components/Fetch'
 import Item from './Item'
 
-const List = ({ endpoint, fetch, ids }) => {
-	const items = ids.map(id => (
-		<Segment key={id} attached>
-			<Item id={id} />
+const List = ({ endpoint, fetch, numbers }) => {
+	const items = numbers.map(number => (
+		<Segment key={number} attached>
+			<Item number={number} />
 		</Segment>
 	))
 
-	return (
-		<Segment.Group
-			as={Container}
-			raised
+	return [
+		<Header as="h3" attached="top">
+			Whats wrong with Angular
+		</Header>,
+		<Fetch
+			endpoint={endpoint}
+			fetch={fetch}
+			shouldFetch={numbers.length === 0}
 		>
-			<Header as="h3" attached="top">
-				Whats wrong with Angular
-			</Header>
-			<Fetch
-				endpoint={endpoint}
-				fetch={fetch}
-				shouldFetch={ids.length === 0}
-			>
-				{items}
-			</Fetch>
-		</Segment.Group>
-	)
+			{items}
+		</Fetch>
+	]
 }
 
 List.propTypes = {
 	endpoint: PropTypes.string.isRequired,
 	fetch: PropTypes.func.isRequired,
-	ids: PropTypes.arrayOf(PropTypes.number)
+	numbers: PropTypes.arrayOf(PropTypes.number)
 }
 
 List.defaultProps = {
-	ids: []
+	numbers: []
 }
 
 export default List

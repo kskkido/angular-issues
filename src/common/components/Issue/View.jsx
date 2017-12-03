@@ -1,19 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View as Container } from 'Styles/base'
-import Navigation from './Navigation'
+import ContentView from 'Components/Content'
+import NavigationView from 'Components/Navigation'
 import Content from './Content'
+import Navigation from './Navigation'
 
 const View = ({ issue }) => {
-	console.log(issue, 'why')
 
 	return (
 		<Container>
-			<Content issue={issue} />
-			<Navigation
-				previous={issue.previousIssue}
-				next={issue.nextIssue}
-			/>
+			<ContentView>
+				<Content issue={issue} />
+			</ContentView>
+			<NavigationView>
+				<Navigation />
+			</NavigationView>
 		</Container>
 	)
 }

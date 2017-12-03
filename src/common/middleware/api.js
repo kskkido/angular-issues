@@ -1,15 +1,20 @@
-import * as issuesActions from 'Actions/issues'
 import * as fetchActions from 'Actions/fetch'
-import { getIssuesByPage, getFetchStatus } from 'Reducers'
+import { getFetchStatus } from 'Reducers'
 import fetch from './utils'
 
 const apiMiddleware = ({ getState }) => next => (action) => {
-	if (action.type === issuesActions.requestApi.type) {
-		const { endpoint, page, schema } = action.payload
-		const state = getState()
+	if (action.type === 'REQUEST_API') {
+		const {
+			cache,
+			endpoint,
+			schema,
+			onSuccess,
+		} = action.payload
 
+		const state = getState()
+		console.log(endpoint, 'ENODIFJODIJFODIFJOSDIFJODSIFJOSIDJF')
 		/* don't fetch if it already exists or in the middle of fetching */
-		if (getIssuesByPage(state, page) || getFetchStatus(state, endpoint)) {
+		if (cache(state) || getFetchStatus(state, endpoint)) {
 			return Promise.resolve()
 		}
 
@@ -18,7 +23,7 @@ const apiMiddleware = ({ getState }) => next => (action) => {
 		return fetch(schema, endpoint)
 			.then(
 				(res) => {
-					next(issuesActions.receivePage(page, res))
+					next(onSuccess(res, endpoint))
 					next(fetchActions.successFetch(endpoint))
 				},
 				error => next(fetchActions.failureFetch(error, endpoint))

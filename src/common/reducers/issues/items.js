@@ -1,5 +1,5 @@
 import reducerCreator from 'Reducers/utils'
-import { receivePage } from 'Actions/issues'
+import { receivePage, receiveIssue } from 'Actions/issues'
 
 /* STATE */
 const initialState = {}
@@ -8,15 +8,12 @@ const initialState = {}
 const handleReceiveItems = (state = initialState, action) => {
 	const { response } = action.payload
 	const { entities, result } = response
+	const ids = Array.isArray(result) ? result : [result]
 	const nextState = Object.assign({}, state)
 
-	return result.reduce(
-		(acc, id, i, list) => {
-			acc[id] = {
-				...entities.items[id],
-				previousIssue: list[i - 1],
-				nextIssue: list[i + 1]
-			}
+	return ids.reduce(
+		(acc, id) => {
+			acc[id] = entities.items[id]
 
 			return acc
 		},
@@ -28,7 +25,8 @@ const handleReceiveItems = (state = initialState, action) => {
 const reducer = reducerCreator(
 	initialState,
 	{
-		[receivePage.type]: handleReceiveItems
+		[receivePage.type]: handleReceiveItems,
+		[receiveIssue.type]: handleReceiveItems
 	}
 )
 

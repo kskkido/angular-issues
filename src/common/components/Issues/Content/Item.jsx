@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Grid } from 'semantic-ui-react'
 import { CustomGrid } from '../Styles'
-import { IssueById } from 'Components/FromRedux'
+import { IssueByNumber } from 'Components/FromRedux'
 
-const Item = ({ id }) => (
-	<IssueById id={id}>
+const Item = ({ number }) => (
+	<IssueByNumber number={number}>
 		{({ issue }) => (
 			<CustomGrid
 				as={Link}
-				to={`/issue/${id}`}
+				to={`/issue/${number}`}
 				divided
 				stackable
 			>
@@ -25,11 +25,11 @@ const Item = ({ id }) => (
 				</Grid.Column>
 			</CustomGrid>
 		)}
-	</IssueById>
+	</IssueByNumber>
 )
 
 Item.propTypes = {
-	id: PropTypes.number.isRequired
+	number: PropTypes.number.isRequired
 }
 
 export default Item

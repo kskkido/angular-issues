@@ -1,4 +1,3 @@
-import { compose } from 'ramda'
 import reducerCreator from 'Reducers/utils'
 import * as fetchActions from 'Actions/fetch'
 import endpointReducer, * as fromEndpoint from './endpoint'

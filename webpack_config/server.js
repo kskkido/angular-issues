@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const nodeExternals = require('webpack-node-externals')
 const merge = require('webpack-merge')
 const { join } = require('path')

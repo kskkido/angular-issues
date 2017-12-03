@@ -5,7 +5,7 @@ import thunk from 'redux-thunk'
 import api from './middleware/api'
 import rootReducer from './reducers'
 
-const configureStore = (initialState) => {
+const configureStore = (initialState = {}) => {
 	const middlewares = [api, thunk]
 	let applyHandler = applyMiddleware
 

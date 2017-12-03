@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import {
 	getFetchError,
 	getFetchStatus,
-	getIssueById,
+	getIssueByNumber,
 	getIssuesByPage,
 	getCurrentPage,
 	getLastPage
-
 } from 'Reducers'
 import { failureFetch } from 'Actions/fetch'
-import { requestApi } from 'Actions/issues'
+import { requestPage } from 'Actions/api'
 import withRedux from './utils'
 
 /* MAP STATE TO PROPS */
@@ -18,11 +17,11 @@ const stateFetch = (state, { endpoint }) => ({
 	error: getFetchError(state, endpoint),
 	fetching: getFetchStatus(state, endpoint)
 })
-const stateIssue = (state, { id }) => ({
-	issue: getIssueById(state, id)
+const stateIssue = (state, { number }) => ({
+	issue: getIssueByNumber(state, number)
 })
 const stateIssues = (state, { page }) => ({
-	issueIds: getIssuesByPage(state, page)
+	issueNumbers: getIssuesByPage(state, page)
 })
 const stateCurrentPage = state => ({
 	currentPage: getCurrentPage(state)
@@ -35,20 +34,20 @@ const stateLastPage = state => ({
 const dispatchFetchError = (dispatch, { endpoint }) => ({
 	dispatchError: error => dispatch(failureFetch(error, endpoint))
 })
-const dispatchRequestApi = (dispatch, { page }) => ({
-	dispatchRequest: () => dispatch(requestApi(page))
+const dispatchRequestPage = (dispatch, { page }) => ({
+	dispatchRequest: () => dispatch(requestPage(page))
 })
 
 /* FROM REDUX STATE */
 export const FetchStatus = withRedux(stateFetch)
-export const IssueById = withRedux(stateIssue)
+export const IssueByNumber = withRedux(stateIssue)
 export const IssuesByPage = withRedux(stateIssues)
 export const CurrentPage = withRedux(stateCurrentPage)
 export const LastPage = withRedux(stateLastPage)
 
 /* FROM REDUX DISPATCH */
 export const DispatchError = withRedux(null, dispatchFetchError)
-export const DispatchRequest = withRedux(null, dispatchRequestApi)
+export const DispatchRequest = withRedux(null, dispatchRequestPage)
 
 /* HELPER */
 /**

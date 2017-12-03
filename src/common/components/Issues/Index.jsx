@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import parse from 'Utils/parse'
-import { requestApi } from 'Actions/issues'
+import { requestPage } from 'Actions/api'
 import { Redirect } from 'react-router-dom'
 import View from './View'
 
@@ -20,9 +20,7 @@ Issues.propTypes = {
 Issues.initialAction = (url) => {
 	const page = parse(url, 'page')
 
-	return page && page > 0 ?
-		requestApi(page) :
-		Promise.resolve()
+	return requestPage(page || '1')
 }
 
 export default Issues

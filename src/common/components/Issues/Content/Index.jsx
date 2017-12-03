@@ -11,11 +11,11 @@ const Body = ({ page }) => {
 
 	return (
 		<IssuesByPageWithRequest page={page}>
-			{({ issueIds, dispatchRequest }) => (
+			{({ issueNumbers, dispatchRequest }) => (
 				<List
 					endpoint={endpoint}
 					fetch={dispatchRequest}
-					ids={issueIds}
+					numbers={issueNumbers}
 				/>
 			)}
 		</IssuesByPageWithRequest>

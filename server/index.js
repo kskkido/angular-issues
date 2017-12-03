@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 29);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -97,10 +97,10 @@ module.exports = require("react-router-dom");
 
 /* eslint-disable global-require, import/no-dynamic-require */
 // define custom env constants through env.json file in your computers home directory
-var _require = __webpack_require__(8),
+var _require = __webpack_require__(6),
     join = _require.join;
 
-var pkg = __webpack_require__(28);
+var pkg = __webpack_require__(31);
 
 var _process = process,
     env = _process.env;
@@ -151,120 +151,7 @@ var _temp = function () {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.receivePage = exports.requestApi = exports.itemListSchema = undefined;
-
-var _normalizr = __webpack_require__(21);
-
-var _utils = __webpack_require__(22);
-
-var _utils2 = _interopRequireDefault(_utils);
-
-var _endpoint = __webpack_require__(15);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var itemSchema = new _normalizr.schema.Entity('items');
-var itemListSchema = exports.itemListSchema = [itemSchema];
-
-var requestApi = exports.requestApi = (0, _utils2.default)('REQUEST_API', function (page) {
-	/* creates github endpoint */
-	var endpoint = (0, _endpoint.pageEndpoint)(page);
-
-	return {
-		page: page,
-		endpoint: endpoint,
-		schema: itemListSchema
-	};
-});
-
-var receivePage = exports.receivePage = (0, _utils2.default)('RECEIVE_PAGE', function (page, response) {
-	return {
-		page: page,
-		response: response
-	};
-});
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(itemListSchema, 'itemListSchema', '/Users/Kidokeisuke/coiney/src/common/actions/issues/index.js');
-
-	__REACT_HOT_LOADER__.register(requestApi, 'requestApi', '/Users/Kidokeisuke/coiney/src/common/actions/issues/index.js');
-
-	__REACT_HOT_LOADER__.register(receivePage, 'receivePage', '/Users/Kidokeisuke/coiney/src/common/actions/issues/index.js');
-
-	__REACT_HOT_LOADER__.register(itemSchema, 'itemSchema', '/Users/Kidokeisuke/coiney/src/common/actions/issues/index.js');
-}();
-
-;
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.Navigation = exports.Content = exports.View = undefined;
-
-var _templateObject = _taggedTemplateLiteral(['', ''], ['', '']),
-    _templateObject2 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tpadding-top: 20px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\twidth: 70vw;\n'], ['\n\tposition: relative;\n\tpadding-top: 20px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\twidth: 70vw;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\tpadding: 20px;\n\tmin-height: 80vh;\n'], ['\n\tpadding: 20px;\n\tmin-height: 80vh;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n\tpadding-top: 20px;\n\tpadding-bottom: 40px;\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n'], ['\n\tpadding-top: 20px;\n\tpadding-bottom: 40px;\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n']);
-
-var _styledComponents = __webpack_require__(10);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _global = __webpack_require__(50);
-
-var _global2 = _interopRequireDefault(_global);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); } /* eslint-disable no-unused-expressions */
-
-
-(0, _styledComponents.injectGlobal)(_templateObject, _global2.default);
-
-var View = exports.View = _styledComponents2.default.div(_templateObject2);
-
-var Content = exports.Content = _styledComponents2.default.div(_templateObject3);
-
-var Navigation = exports.Navigation = _styledComponents2.default.div(_templateObject4);
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(View, 'View', '/Users/Kidokeisuke/coiney/src/common/styles/base.jsx');
-
-	__REACT_HOT_LOADER__.register(Content, 'Content', '/Users/Kidokeisuke/coiney/src/common/styles/base.jsx');
-
-	__REACT_HOT_LOADER__.register(Navigation, 'Navigation', '/Users/Kidokeisuke/coiney/src/common/styles/base.jsx');
-}();
-
-;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.merge = exports.DispatchRequest = exports.DispatchError = exports.LastPage = exports.CurrentPage = exports.IssuesByPage = exports.IssueById = exports.FetchStatus = undefined;
+exports.merge = exports.DispatchRequest = exports.DispatchError = exports.LastPage = exports.CurrentPage = exports.IssuesByPage = exports.IssueByNumber = exports.FetchStatus = undefined;
 
 var _react = __webpack_require__(0);
 
@@ -274,13 +161,13 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Reducers = __webpack_require__(16);
+var _Reducers = __webpack_require__(9);
 
-var _fetch = __webpack_require__(11);
+var _fetch = __webpack_require__(10);
 
-var _issues = __webpack_require__(5);
+var _api = __webpack_require__(17);
 
-var _utils = __webpack_require__(59);
+var _utils = __webpack_require__(62);
 
 var _utils2 = _interopRequireDefault(_utils);
 
@@ -297,15 +184,15 @@ var stateFetch = function stateFetch(state, _ref) {
 	};
 };
 var stateIssue = function stateIssue(state, _ref2) {
-	var id = _ref2.id;
+	var number = _ref2.number;
 	return {
-		issue: (0, _Reducers.getIssueById)(state, id)
+		issue: (0, _Reducers.getIssueByNumber)(state, number)
 	};
 };
 var stateIssues = function stateIssues(state, _ref3) {
 	var page = _ref3.page;
 	return {
-		issueIds: (0, _Reducers.getIssuesByPage)(state, page)
+		issueNumbers: (0, _Reducers.getIssuesByPage)(state, page)
 	};
 };
 var stateCurrentPage = function stateCurrentPage(state) {
@@ -328,25 +215,25 @@ var dispatchFetchError = function dispatchFetchError(dispatch, _ref4) {
 		}
 	};
 };
-var dispatchRequestApi = function dispatchRequestApi(dispatch, _ref5) {
+var dispatchRequestPage = function dispatchRequestPage(dispatch, _ref5) {
 	var page = _ref5.page;
 	return {
 		dispatchRequest: function dispatchRequest() {
-			return dispatch((0, _issues.requestApi)(page));
+			return dispatch((0, _api.requestPage)(page));
 		}
 	};
 };
 
 /* FROM REDUX STATE */
 var FetchStatus = exports.FetchStatus = (0, _utils2.default)(stateFetch);
-var IssueById = exports.IssueById = (0, _utils2.default)(stateIssue);
+var IssueByNumber = exports.IssueByNumber = (0, _utils2.default)(stateIssue);
 var IssuesByPage = exports.IssuesByPage = (0, _utils2.default)(stateIssues);
 var CurrentPage = exports.CurrentPage = (0, _utils2.default)(stateCurrentPage);
 var LastPage = exports.LastPage = (0, _utils2.default)(stateLastPage);
 
 /* FROM REDUX DISPATCH */
 var DispatchError = exports.DispatchError = (0, _utils2.default)(null, dispatchFetchError);
-var DispatchRequest = exports.DispatchRequest = (0, _utils2.default)(null, dispatchRequestApi);
+var DispatchRequest = exports.DispatchRequest = (0, _utils2.default)(null, dispatchRequestPage);
 
 /* HELPER */
 /**
@@ -393,7 +280,7 @@ var _temp = function () {
 
 	__REACT_HOT_LOADER__.register(FetchStatus, 'FetchStatus', '/Users/Kidokeisuke/coiney/src/common/components/FromRedux/index.jsx');
 
-	__REACT_HOT_LOADER__.register(IssueById, 'IssueById', '/Users/Kidokeisuke/coiney/src/common/components/FromRedux/index.jsx');
+	__REACT_HOT_LOADER__.register(IssueByNumber, 'IssueByNumber', '/Users/Kidokeisuke/coiney/src/common/components/FromRedux/index.jsx');
 
 	__REACT_HOT_LOADER__.register(IssuesByPage, 'IssuesByPage', '/Users/Kidokeisuke/coiney/src/common/components/FromRedux/index.jsx');
 
@@ -419,19 +306,25 @@ var _temp = function () {
 
 	__REACT_HOT_LOADER__.register(dispatchFetchError, 'dispatchFetchError', '/Users/Kidokeisuke/coiney/src/common/components/FromRedux/index.jsx');
 
-	__REACT_HOT_LOADER__.register(dispatchRequestApi, 'dispatchRequestApi', '/Users/Kidokeisuke/coiney/src/common/components/FromRedux/index.jsx');
+	__REACT_HOT_LOADER__.register(dispatchRequestPage, 'dispatchRequestPage', '/Users/Kidokeisuke/coiney/src/common/components/FromRedux/index.jsx');
 }();
 
 ;
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 9 */
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -471,13 +364,83 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports) {
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("styled-components");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.getLastPage = exports.getCurrentPage = exports.getIssueByNumber = exports.getIssuesByPage = exports.getFetchStatus = exports.getFetchError = undefined;
+
+var _redux = __webpack_require__(18);
+
+var _fetch = __webpack_require__(52);
+
+var fromFetch = _interopRequireWildcard(_fetch);
+
+var _issues = __webpack_require__(54);
+
+var fromIssues = _interopRequireWildcard(_issues);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+/* ROOT REDUCER */
+var _default = (0, _redux.combineReducers)({
+	fetch: fromFetch.default,
+	issues: fromIssues.default
+});
+
+exports.default = _default;
+
+/* GETTERS */
+
+var getFetchError = exports.getFetchError = function getFetchError(state, endpoint) {
+	return fromFetch.getError(state.fetch, endpoint);
+};
+var getFetchStatus = exports.getFetchStatus = function getFetchStatus(state, endpoint) {
+	return fromFetch.getStatus(state.fetch, endpoint);
+};
+var getIssuesByPage = exports.getIssuesByPage = function getIssuesByPage(state, page) {
+	return fromIssues.getIssuesByPage(state.issues, page);
+};
+var getIssueByNumber = exports.getIssueByNumber = function getIssueByNumber(state, id) {
+	return fromIssues.getIssueByNumber(state.issues, id);
+};
+var getCurrentPage = exports.getCurrentPage = function getCurrentPage(state) {
+	return fromIssues.getCurrentPage(state.issues);
+};
+var getLastPage = exports.getLastPage = function getLastPage(state) {
+	return fromIssues.getLastPage(state.issues);
+};
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(getFetchError, 'getFetchError', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
+
+	__REACT_HOT_LOADER__.register(getFetchStatus, 'getFetchStatus', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
+
+	__REACT_HOT_LOADER__.register(getIssuesByPage, 'getIssuesByPage', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
+
+	__REACT_HOT_LOADER__.register(getIssueByNumber, 'getIssueByNumber', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
+
+	__REACT_HOT_LOADER__.register(getCurrentPage, 'getCurrentPage', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
+
+	__REACT_HOT_LOADER__.register(getLastPage, 'getLastPage', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
+}();
+
+;
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -488,7 +451,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.failureFetch = exports.successFetch = exports.requestFetch = undefined;
 
-var _utils = __webpack_require__(22);
+var _utils = __webpack_require__(19);
 
 var _utils2 = _interopRequireDefault(_utils);
 
@@ -523,61 +486,123 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-module.exports = require("express");
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("webpack");
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = require("webpack-merge");
-
-/***/ }),
-/* 15 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
-/* GITHUB STUFF */
-var ROOT = 'https://api.github.com/repos/angular/protractor/issues';
-var LIMIT = 10;
+exports.receiveIssue = exports.receivePage = undefined;
 
-var pageEndpoint = exports.pageEndpoint = function pageEndpoint(page) {
-  return ROOT + '?page=' + page + '&per_page=' + LIMIT;
-};
+var _parse = __webpack_require__(16);
 
-var issueEndpoint = exports.issueEndpoint = function issueEndpoint(issueId) {
-  return ROOT + '/' + issueId;
-};
+var _parse2 = _interopRequireDefault(_parse);
+
+var _utils = __webpack_require__(19);
+
+var _utils2 = _interopRequireDefault(_utils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var receivePage = exports.receivePage = (0, _utils2.default)('RECEIVE_PAGE', function (response, endpoint) {
+	var page = (0, _parse2.default)(endpoint, 'page');
+
+	return {
+		page: page,
+		response: response
+	};
+});
+
+var receiveIssue = exports.receiveIssue = (0, _utils2.default)('RECEIVE_ISSUE', function (response) {
+	return { response: response };
+});
 ;
 
 var _temp = function () {
-  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-    return;
-  }
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
 
-  __REACT_HOT_LOADER__.register(pageEndpoint, 'pageEndpoint', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
+	__REACT_HOT_LOADER__.register(receivePage, 'receivePage', '/Users/Kidokeisuke/coiney/src/common/actions/issues/index.js');
 
-  __REACT_HOT_LOADER__.register(issueEndpoint, 'issueEndpoint', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
-
-  __REACT_HOT_LOADER__.register(ROOT, 'ROOT', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
-
-  __REACT_HOT_LOADER__.register(LIMIT, 'LIMIT', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
+	__REACT_HOT_LOADER__.register(receiveIssue, 'receiveIssue', '/Users/Kidokeisuke/coiney/src/common/actions/issues/index.js');
 }();
 
 ;
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Navigation = exports.Content = exports.View = undefined;
+
+var _templateObject = _taggedTemplateLiteral(['', ''], ['', '']),
+    _templateObject2 = _taggedTemplateLiteral(['\n\tposition: relative;\n\tpadding-top: 20px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\twidth: 70vw;\n'], ['\n\tposition: relative;\n\tpadding-top: 20px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n\twidth: 70vw;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n\tpadding: 20px;\n\tmin-height: 80vh;\n'], ['\n\tpadding: 20px;\n\tmin-height: 80vh;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n\tpadding-top: 20px;\n\tpadding-bottom: 40px;\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n'], ['\n\tpadding-top: 20px;\n\tpadding-bottom: 40px;\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n']);
+
+var _styledComponents = __webpack_require__(7);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _global = __webpack_require__(60);
+
+var _global2 = _interopRequireDefault(_global);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); } /* eslint-disable no-unused-expressions */
+
+
+(0, _styledComponents.injectGlobal)(_templateObject, _global2.default);
+
+var View = exports.View = _styledComponents2.default.div(_templateObject2);
+
+var Content = exports.Content = _styledComponents2.default.div(_templateObject3);
+
+var Navigation = exports.Navigation = _styledComponents2.default.div(_templateObject4);
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(View, 'View', '/Users/Kidokeisuke/coiney/src/common/styles/base.jsx');
+
+	__REACT_HOT_LOADER__.register(Content, 'Content', '/Users/Kidokeisuke/coiney/src/common/styles/base.jsx');
+
+	__REACT_HOT_LOADER__.register(Navigation, 'Navigation', '/Users/Kidokeisuke/coiney/src/common/styles/base.jsx');
+}();
+
+;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+module.exports = require("express");
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = require("webpack");
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports = require("webpack-merge");
 
 /***/ }),
 /* 16 */
@@ -589,147 +614,8 @@ var _temp = function () {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.getLastPage = exports.getCurrentPage = exports.getIssueById = exports.getIssuesByPage = exports.getFetchStatus = exports.getFetchError = undefined;
 
-var _redux = __webpack_require__(17);
-
-var _fetch = __webpack_require__(52);
-
-var fromFetch = _interopRequireWildcard(_fetch);
-
-var _issues = __webpack_require__(55);
-
-var fromIssues = _interopRequireWildcard(_issues);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-/* ROOT REDUCER */
-var _default = (0, _redux.combineReducers)({
-	fetch: fromFetch.default,
-	issues: fromIssues.default
-});
-
-exports.default = _default;
-
-/* GETTERS */
-
-var getFetchError = exports.getFetchError = function getFetchError(state, endpoint) {
-	return fromFetch.getError(state.fetch, endpoint);
-};
-var getFetchStatus = exports.getFetchStatus = function getFetchStatus(state, endpoint) {
-	return fromFetch.getStatus(state.fetch, endpoint);
-};
-var getIssuesByPage = exports.getIssuesByPage = function getIssuesByPage(state, page) {
-	return fromIssues.getIssuesByPage(state.issues, page);
-};
-var getIssueById = exports.getIssueById = function getIssueById(state, id) {
-	return fromIssues.getIssueById(state.issues, id);
-};
-var getCurrentPage = exports.getCurrentPage = function getCurrentPage(state) {
-	return fromIssues.getCurrentPage(state.issues);
-};
-var getLastPage = exports.getLastPage = function getLastPage(state) {
-	return fromIssues.getLastPage(state.issues);
-};
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(getFetchError, 'getFetchError', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
-
-	__REACT_HOT_LOADER__.register(getFetchStatus, 'getFetchStatus', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
-
-	__REACT_HOT_LOADER__.register(getIssuesByPage, 'getIssuesByPage', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
-
-	__REACT_HOT_LOADER__.register(getIssueById, 'getIssueById', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
-
-	__REACT_HOT_LOADER__.register(getCurrentPage, 'getCurrentPage', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
-
-	__REACT_HOT_LOADER__.register(getLastPage, 'getLastPage', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
-
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/reducers/index.js');
-}();
-
-;
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-redux");
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(3);
-
-var _Issues = __webpack_require__(47);
-
-var _Issues2 = _interopRequireDefault(_Issues);
-
-var _Issue = __webpack_require__(77);
-
-var _Issue2 = _interopRequireDefault(_Issue);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var routes = [{
-	path: '/issues',
-	component: _Issues2.default
-}, {
-	path: '/issue/:id',
-	component: _Issue2.default
-}];
-
-var _default = routes;
-exports.default = _default;
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(routes, 'routes', '/Users/Kidokeisuke/coiney/src/common/routes.jsx');
-
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/routes.jsx');
-}();
-
-;
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _queryString = __webpack_require__(48);
+var _queryString = __webpack_require__(51);
 
 var _queryString2 = _interopRequireDefault(_queryString);
 
@@ -770,13 +656,85 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 21 */
-/***/ (function(module, exports) {
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("normalizr");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.requestIssue = exports.requestPage = undefined;
+
+var _normalizr = __webpack_require__(22);
+
+var _Reducers = __webpack_require__(9);
+
+var _endpoint = __webpack_require__(23);
+
+var _issues = __webpack_require__(11);
+
+var _utils = __webpack_require__(58);
+
+var _utils2 = _interopRequireDefault(_utils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var itemSchema = new _normalizr.schema.Entity('items', {}, { idAttribute: 'number' });
+var itemListSchema = [itemSchema];
+
+var requestPage = exports.requestPage = (0, _utils2.default)(function (page) {
+	var endpoint = (0, _endpoint.pageEndpoint)(page);
+
+	return {
+		endpoint: endpoint,
+		onSuccess: _issues.receivePage,
+		schema: itemListSchema,
+		cache: function cache(state) {
+			return (0, _Reducers.getIssuesByPage)(state, page);
+		}
+	};
+});
+
+var requestIssue = exports.requestIssue = (0, _utils2.default)(function (issueId) {
+	var endpoint = (0, _endpoint.issueEndpoint)(issueId);
+
+	return {
+		endpoint: endpoint,
+		onSuccess: _issues.receiveIssue,
+		schema: itemSchema,
+		cache: function cache(state) {
+			return (0, _Reducers.getIssueByNumber)(state, issueId);
+		}
+	};
+});
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(requestPage, 'requestPage', '/Users/Kidokeisuke/coiney/src/common/actions/api/index.js');
+
+	__REACT_HOT_LOADER__.register(requestIssue, 'requestIssue', '/Users/Kidokeisuke/coiney/src/common/actions/api/index.js');
+
+	__REACT_HOT_LOADER__.register(itemSchema, 'itemSchema', '/Users/Kidokeisuke/coiney/src/common/actions/api/index.js');
+
+	__REACT_HOT_LOADER__.register(itemListSchema, 'itemListSchema', '/Users/Kidokeisuke/coiney/src/common/actions/api/index.js');
+}();
+
+;
 
 /***/ }),
-/* 22 */
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -817,7 +775,270 @@ var _temp = function () {
 ;
 
 /***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _Issues = __webpack_require__(50);
+
+var _Issues2 = _interopRequireDefault(_Issues);
+
+var _Issue = __webpack_require__(80);
+
+var _Issue2 = _interopRequireDefault(_Issue);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var routes = [{
+	path: '/issues',
+	component: _Issues2.default
+}, {
+	path: '/issue/:number',
+	component: _Issue2.default
+}];
+
+var _default = routes;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(routes, 'routes', '/Users/Kidokeisuke/coiney/src/common/routes.js');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/routes.js');
+}();
+
+;
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = require("normalizr");
+
+/***/ }),
 /* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* GITHUB STUFF */
+var ROOT = 'https://api.github.com/repos/angular/protractor/issues';
+var LIMIT = 10;
+
+var pageEndpoint = exports.pageEndpoint = function pageEndpoint(page) {
+  return ROOT + '?page=' + page + '&per_page=' + LIMIT;
+};
+
+var issueEndpoint = exports.issueEndpoint = function issueEndpoint(issueId) {
+  return ROOT + '/' + issueId;
+};
+;
+
+var _temp = function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(pageEndpoint, 'pageEndpoint', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
+
+  __REACT_HOT_LOADER__.register(issueEndpoint, 'issueEndpoint', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
+
+  __REACT_HOT_LOADER__.register(ROOT, 'ROOT', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
+
+  __REACT_HOT_LOADER__.register(LIMIT, 'LIMIT', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
+}();
+
+;
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _semanticUiReact = __webpack_require__(2);
+
+var _base = __webpack_require__(12);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Content = function Content(_ref) {
+	var children = _ref.children;
+	return _react2.default.createElement(
+		_semanticUiReact.Segment,
+		{
+			as: _base.Content,
+			raised: true
+		},
+		children
+	);
+};
+
+Content.propTypes = {
+	children: _propTypes2.default.node.isRequired
+};
+
+var _default = Content;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(Content, 'Content', '/Users/Kidokeisuke/coiney/src/common/components/Content.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Content.jsx');
+}();
+
+;
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _semanticUiReact = __webpack_require__(2);
+
+var _base = __webpack_require__(12);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Navigation = function Navigation(_ref) {
+	var children = _ref.children;
+	return _react2.default.createElement(
+		_base.Navigation,
+		null,
+		_react2.default.createElement(
+			_semanticUiReact.Menu,
+			null,
+			children
+		)
+	);
+};
+
+Navigation.propTypes = {
+	children: _propTypes2.default.node.isRequired
+};
+
+var _default = Navigation;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(Navigation, 'Navigation', '/Users/Kidokeisuke/coiney/src/common/components/Navigation.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Navigation.jsx');
+}();
+
+;
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _semanticUiReact = __webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Overlay = function Overlay(_ref) {
+	var children = _ref.children;
+	return _react2.default.createElement(
+		_semanticUiReact.Dimmer,
+		{ active: true, inverted: true },
+		children
+	);
+};
+
+Overlay.propTypes = {
+	children: _propTypes2.default.node.isRequired
+};
+
+var _default = Overlay;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(Overlay, 'Overlay', '/Users/Kidokeisuke/coiney/src/common/components/Fetch/Overlay.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Fetch/Overlay.jsx');
+}();
+
+;
+
+/***/ }),
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -895,59 +1116,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _semanticUiReact = __webpack_require__(2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Overlay = function Overlay(_ref) {
-	var children = _ref.children;
-	return _react2.default.createElement(
-		_semanticUiReact.Dimmer,
-		{ active: true, inverted: true },
-		children
-	);
-};
-
-Overlay.propTypes = {
-	children: _propTypes2.default.node.isRequired
-};
-
-var _default = Overlay;
-exports.default = _default;
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(Overlay, 'Overlay', '/Users/Kidokeisuke/coiney/src/common/components/Fetch/Overlay.jsx');
-
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Fetch/Overlay.jsx');
-}();
-
-;
-
-/***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -964,7 +1133,7 @@ var _templateObject = _taggedTemplateLiteral(['\n\tmargin: 20px 0;\n\n\t& > div 
     _templateObject4 = _taggedTemplateLiteral(['\n\tpadding-bottom: 10px;\n'], ['\n\tpadding-bottom: 10px;\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n\tbackground: rgba(0,0,0,.05);\n\tpadding: 10px;\n\twhite-space: pre-wrap;\n'], ['\n\tbackground: rgba(0,0,0,.05);\n\tpadding: 10px;\n\twhite-space: pre-wrap;\n']);
 
-var _styledComponents = __webpack_require__(10);
+var _styledComponents = __webpack_require__(7);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -1002,7 +1171,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1012,23 +1181,23 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _path = __webpack_require__(8);
+var _path = __webpack_require__(6);
 
 var _Root = __webpack_require__(4);
 
-var _express = __webpack_require__(12);
+var _express = __webpack_require__(13);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _bodyParser = __webpack_require__(30);
+var _bodyParser = __webpack_require__(33);
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-var _dev = __webpack_require__(31);
+var _dev = __webpack_require__(34);
 
 var _dev2 = _interopRequireDefault(_dev);
 
-var _ssr = __webpack_require__(44);
+var _ssr = __webpack_require__(47);
 
 var _ssr2 = _interopRequireDefault(_ssr);
 
@@ -1073,10 +1242,10 @@ var _temp = function () {
 }();
 
 ;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)(module)))
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -1104,7 +1273,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -1117,7 +1286,7 @@ module.exports = {
 		"build-prod": "NODE_ENV=production webpack",
 		"build-dev": "NODE_ENV=development webpack",
 		"start": "node ./server",
-		"start-dev": "npm run build-dev & NODE_ENV=development npm run start",
+		"start-dev": "npm run build-dev & NODE_ENV=development nodemon ./server",
 		"start-prod": "npm run build-prod & NODE_ENV=production npm run start"
 	},
 	"keywords": [],
@@ -1133,7 +1302,6 @@ module.exports = {
 		"normalizr": "^3.2.4",
 		"prop-types": "^15.6.0",
 		"query-string": "^5.0.1",
-		"ramda": "^0.25.0",
 		"react": "^16.0.0",
 		"react-dom": "^16.0.0",
 		"react-markdown": "^3.1.0",
@@ -1158,7 +1326,8 @@ module.exports = {
 		"babel-preset-stage-0": "^6.24.1",
 		"chai": "^4.1.0",
 		"compression-webpack-plugin": "^1.0.0",
-		"enzyme": "^3.0.0",
+		"enzyme": "^3.2.0",
+		"enzyme-adapter-react-16": "^1.1.0",
 		"eslint": "^4.12.0",
 		"eslint-config-airbnb": "^16.1.0",
 		"eslint-import-resolver-webpack": "^0.8.3",
@@ -1179,7 +1348,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 29 */
+/* 32 */
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -1188,16 +1357,16 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 29;
+webpackEmptyContext.id = 32;
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = require("body-parser");
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1207,21 +1376,21 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _sourceMapSupport = __webpack_require__(32);
+var _sourceMapSupport = __webpack_require__(35);
 
 var _sourceMapSupport2 = _interopRequireDefault(_sourceMapSupport);
 
-var _express = __webpack_require__(12);
+var _express = __webpack_require__(13);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _morgan = __webpack_require__(33);
+var _morgan = __webpack_require__(36);
 
 var _morgan2 = _interopRequireDefault(_morgan);
 
 var _Root = __webpack_require__(4);
 
-var _hmr = __webpack_require__(34);
+var _hmr = __webpack_require__(37);
 
 var _hmr2 = _interopRequireDefault(_hmr);
 
@@ -1252,19 +1421,19 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = require("source-map-support");
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = require("morgan");
 
 /***/ }),
-/* 34 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1274,23 +1443,23 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _express = __webpack_require__(12);
+var _express = __webpack_require__(13);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _webpack = __webpack_require__(13);
+var _webpack = __webpack_require__(14);
 
 var _webpack2 = _interopRequireDefault(_webpack);
 
-var _webpackDevMiddleware = __webpack_require__(35);
+var _webpackDevMiddleware = __webpack_require__(38);
 
 var _webpackDevMiddleware2 = _interopRequireDefault(_webpackDevMiddleware);
 
-var _webpackHotMiddleware = __webpack_require__(36);
+var _webpackHotMiddleware = __webpack_require__(39);
 
 var _webpackHotMiddleware2 = _interopRequireDefault(_webpackHotMiddleware);
 
-var _webpack3 = __webpack_require__(37);
+var _webpack3 = __webpack_require__(40);
 
 var _webpack4 = _interopRequireDefault(_webpack3);
 
@@ -1328,26 +1497,26 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 35 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = require("webpack-dev-middleware");
 
 /***/ }),
-/* 36 */
+/* 39 */
 /***/ (function(module, exports) {
 
 module.exports = require("webpack-hot-middleware");
 
 /***/ }),
-/* 37 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 // const npmEvent = process.env.npm_lifecycle_event;
-module.exports = __webpack_require__(38);
+module.exports = __webpack_require__(41);
 ;
 
 var _temp = function () {
@@ -1359,7 +1528,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1369,9 +1538,9 @@ var _temp = function () {
 var _require = __webpack_require__(4),
     env = _require.env;
 
-var clientConfig = __webpack_require__(39);
-var serverConfig = __webpack_require__(41);
-var applyBaseConfig = __webpack_require__(43)(env);
+var clientConfig = __webpack_require__(42);
+var serverConfig = __webpack_require__(44);
+var applyBaseConfig = __webpack_require__(46)(env);
 
 module.exports = [clientConfig, serverConfig].map(applyBaseConfig);
 ;
@@ -1387,18 +1556,18 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /* eslint-disable import/no-extraneous-dependencies */
-var webpack = __webpack_require__(13);
-var merge = __webpack_require__(14);
-var CompressionPlugin = __webpack_require__(40);
+var webpack = __webpack_require__(14);
+var merge = __webpack_require__(15);
+var CompressionPlugin = __webpack_require__(43);
 
-var _require = __webpack_require__(8),
+var _require = __webpack_require__(6),
     join = _require.join;
 
 var _require2 = __webpack_require__(4),
@@ -1472,23 +1641,23 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports) {
 
 module.exports = require("compression-webpack-plugin");
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /* eslint-disable import/no-extraneous-dependencies */
-var nodeExternals = __webpack_require__(42);
-var merge = __webpack_require__(14);
+var nodeExternals = __webpack_require__(45);
+var merge = __webpack_require__(15);
 
-var _require = __webpack_require__(8),
+var _require = __webpack_require__(6),
     join = _require.join;
 
 var _require2 = __webpack_require__(4),
@@ -1536,23 +1705,23 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports) {
 
 module.exports = require("webpack-node-externals");
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 /* eslint-disable import/no-extraneous-dependencies */
-var webpack = __webpack_require__(13);
-var merge = __webpack_require__(14);
+var webpack = __webpack_require__(14);
+var merge = __webpack_require__(15);
 
-var _require = __webpack_require__(8),
+var _require = __webpack_require__(6),
     join = _require.join;
 
 var _require2 = __webpack_require__(4),
@@ -1589,6 +1758,9 @@ var commonConfig = {
 			options: {
 				presets: ['react', 'env', 'stage-0']
 			}
+		}, {
+			test: /\.css$/,
+			loader: 'css-loader'
 		}]
 	}
 };
@@ -1636,7 +1808,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1646,7 +1818,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _serializeJavascript = __webpack_require__(45);
+var _serializeJavascript = __webpack_require__(48);
 
 var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
 
@@ -1654,56 +1826,62 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(18);
+var _reactRedux = __webpack_require__(20);
 
-var _server = __webpack_require__(46);
+var _server = __webpack_require__(49);
 
 var _reactRouterDom = __webpack_require__(3);
 
-var _routes = __webpack_require__(19);
+var _styledComponents = __webpack_require__(7);
+
+var _routes = __webpack_require__(21);
 
 var _routes2 = _interopRequireDefault(_routes);
 
-var _configureStore = __webpack_require__(87);
+var _configureStore = __webpack_require__(90);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
-var _App = __webpack_require__(95);
+var _App = __webpack_require__(98);
 
 var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint-disable react/jsx-filename-extension */
-var createHtml = function createHtml(componentMarkup, initialState) {
-	return '\n<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset="utf-8" />\n\t\t<meta name="viewport" content="width=device-width, initial-scale=1">\n\t\t<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto" rel="stylesheet">\n\t\t<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>\n\t\t<script async defer src="/bundle.js"></script>\n\t\t<script>window.__initialState__=' + (0, _serializeJavascript2.default)(initialState) + '</script>\n\t\t<title>shitty blog</title>\n\t</head>\n\t<body>\n\t\t<div id="app">' + componentMarkup + '</div>\n\t</body>\n</html>\n';
-};
+var createHtml = function createHtml(_ref) {
+	var css = _ref.css,
+	    initialState = _ref.initialState,
+	    markup = _ref.markup;
+
+	var serializedState = (0, _serializeJavascript2.default)(initialState);
+
+	return '\n\t<!DOCTYPE html>\n\t<html>\n\t\t<head>\n\t\t\t<meta charset="utf-8" />\n\t\t\t<meta name="viewport" content="width=device-width, initial-scale=1">\n\t\t\t<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto" rel="stylesheet">\n\t\t\t<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>\n\t\t\t' + css + '\n\t\t\t<script>window.__INITIAL_STATE__=' + serializedState + '</script>\n\t\t\t<title>shitty blog</title>\n\t\t</head>\n\t\t<body>\n\t\t\t<div id="app">' + markup + '</div>\n\t\t\t<script src="/bundle.js"></script>\n\t\t</body>\n\t</html>\n\t';
+}; /* eslint-disable react/jsx-filename-extension */
+
 
 var dispatchInitialActions = function dispatchInitialActions(store, req) {
-	return _routes2.default.reduce(function (acc, route) {
+	return _routes2.default.reduce(function (promises, route) {
 		var component = (0, _reactRouterDom.matchPath)(req.path, route) && route.component;
 		var initialAction = component && component.initialAction;
 
 		if (initialAction) {
 			var action = initialAction(req.url);
 
-			acc.push(Promise.resolve(store.dispatch(action)));
+			promises.push(Promise.resolve(store.dispatch(action)));
 		}
 
-		return acc;
+		return promises;
 	}, []);
 };
 
 var renderHtml = function renderHtml(req, res) {
 	var store = (0, _configureStore2.default)();
-	var dispatchPromises = dispatchInitialActions(store, req);
+	var promises = dispatchInitialActions(store, req);
 
-	if (dispatchPromises.length === 0) {
-		return res.redirect('/issues?page=1');
-	}
-
-	return Promise.all(dispatchPromises).then(function () {
+	return Promise.all(promises).then(function () {
 		var initialState = store.getState();
+		console.log(initialState, 'SDFJOSDLKJFLDSKFJLDKFLDSKFJLDSKJF');
+		var sheet = new _styledComponents.ServerStyleSheet();
 
 		var markup = (0, _server.renderToString)(_react2.default.createElement(
 			_reactRedux.Provider,
@@ -1711,11 +1889,19 @@ var renderHtml = function renderHtml(req, res) {
 			_react2.default.createElement(
 				_reactRouterDom.StaticRouter,
 				{ location: req.url, context: {} },
-				_react2.default.createElement(_App2.default, null)
+				_react2.default.createElement(
+					_styledComponents.StyleSheetManager,
+					{ sheet: sheet.instance },
+					_react2.default.createElement(_App2.default, null)
+				)
 			)
 		));
 
-		var html = createHtml(markup, initialState);
+		var html = createHtml({
+			css: sheet.getStyleTags(),
+			markup: markup,
+			initialState: initialState
+		});
 
 		res.send(html);
 	});
@@ -1742,19 +1928,19 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports) {
 
 module.exports = require("serialize-javascript");
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1772,15 +1958,15 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _parse = __webpack_require__(20);
+var _parse = __webpack_require__(16);
 
 var _parse2 = _interopRequireDefault(_parse);
 
-var _issues = __webpack_require__(5);
+var _api = __webpack_require__(17);
 
 var _reactRouterDom = __webpack_require__(3);
 
-var _View = __webpack_require__(49);
+var _View = __webpack_require__(59);
 
 var _View2 = _interopRequireDefault(_View);
 
@@ -1801,7 +1987,7 @@ Issues.propTypes = {
 Issues.initialAction = function (url) {
 	var page = (0, _parse2.default)(url, 'page');
 
-	return page && page > 0 ? (0, _issues.requestApi)(page) : Promise.resolve();
+	return (0, _api.requestPage)(page || '1');
 };
 
 var _default = Issues;
@@ -1821,174 +2007,10 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports) {
 
 module.exports = require("query-string");
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _base = __webpack_require__(6);
-
-var _Navigation = __webpack_require__(51);
-
-var _Navigation2 = _interopRequireDefault(_Navigation);
-
-var _Content = __webpack_require__(62);
-
-var _Content2 = _interopRequireDefault(_Content);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var View = function View(_ref) {
-	var page = _ref.page;
-	return _react2.default.createElement(
-		_base.View,
-		null,
-		_react2.default.createElement(_Content2.default, { page: page }),
-		_react2.default.createElement(_Navigation2.default, { page: page })
-	);
-};
-
-View.propTypes = {
-	page: _propTypes2.default.number.isRequired
-};
-
-var _default = View;
-exports.default = _default;
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(View, 'View', '/Users/Kidokeisuke/coiney/src/common/components/Issues/View.jsx');
-
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issues/View.jsx');
-}();
-
-;
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _templateObject = _taggedTemplateLiteral(['\n\tbody {\n\t\tmargin: 0;\n\t\tpadding: 0;\n\t\toverflow-x: hidden;\n\t\tletter-spacing: 2px;\n\t}\n\n\tdiv {\n\t\tword-wrap: break-word;\n\t}\n\n\t#app {\n\t\theight: 100%;\n\t\twidth: 100%;\n\t}\n'], ['\n\tbody {\n\t\tmargin: 0;\n\t\tpadding: 0;\n\t\toverflow-x: hidden;\n\t\tletter-spacing: 2px;\n\t}\n\n\tdiv {\n\t\tword-wrap: break-word;\n\t}\n\n\t#app {\n\t\theight: 100%;\n\t\twidth: 100%;\n\t}\n']);
-
-var _styledComponents = __webpack_require__(10);
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Global = (0, _styledComponents.css)(_templateObject);
-
-var _default = Global;
-exports.default = _default;
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(Global, 'Global', '/Users/Kidokeisuke/coiney/src/common/styles/global.jsx');
-
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/styles/global.jsx');
-}();
-
-;
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _base = __webpack_require__(6);
-
-var _FromRedux = __webpack_require__(7);
-
-var _List = __webpack_require__(60);
-
-var _List2 = _interopRequireDefault(_List);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Tabs = function Tabs(_ref) {
-	var page = _ref.page;
-	return _react2.default.createElement(
-		_base.Navigation,
-		null,
-		_react2.default.createElement(
-			_FromRedux.LastPage,
-			null,
-			function (_ref2) {
-				var lastPage = _ref2.lastPage;
-				return lastPage !== null && _react2.default.createElement(_List2.default, {
-					currentPage: page,
-					lastPage: lastPage
-				});
-			}
-		)
-	);
-};
-
-Tabs.propTypes = {
-	page: _propTypes2.default.number.isRequired
-};
-
-var _default = Tabs;
-exports.default = _default;
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(Tabs, 'Tabs', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/index.jsx');
-
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/index.jsx');
-}();
-
-;
 
 /***/ }),
 /* 52 */
@@ -2006,17 +2028,15 @@ var _reducerCreator;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _ramda = __webpack_require__(53);
-
-var _utils = __webpack_require__(9);
+var _utils = __webpack_require__(8);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _fetch = __webpack_require__(11);
+var _fetch = __webpack_require__(10);
 
 var fetchActions = _interopRequireWildcard(_fetch);
 
-var _endpoint = __webpack_require__(54);
+var _endpoint = __webpack_require__(53);
 
 var fromEndpoint = _interopRequireWildcard(_endpoint);
 
@@ -2080,12 +2100,6 @@ var _temp = function () {
 
 /***/ }),
 /* 53 */
-/***/ (function(module, exports) {
-
-module.exports = require("ramda");
-
-/***/ }),
-/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2100,11 +2114,11 @@ var _reducerCreator;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _utils = __webpack_require__(9);
+var _utils = __webpack_require__(8);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _fetch = __webpack_require__(11);
+var _fetch = __webpack_require__(10);
 
 var fetchActions = _interopRequireWildcard(_fetch);
 
@@ -2179,7 +2193,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2188,23 +2202,29 @@ var _temp = function () {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.getLastPage = exports.getCurrentPage = exports.getIssueById = exports.getIssuesByPage = undefined;
+exports.getLastPage = exports.getCurrentPage = exports.getIssueByNumber = exports.getIssuesByPage = undefined;
 
-var _redux = __webpack_require__(17);
+var _redux = __webpack_require__(18);
 
-var _pages = __webpack_require__(56);
+var _pages = __webpack_require__(55);
 
 var fromPages = _interopRequireWildcard(_pages);
 
-var _items = __webpack_require__(57);
+var _items = __webpack_require__(56);
 
 var fromItems = _interopRequireWildcard(_items);
 
-var _navigation = __webpack_require__(58);
+var _navigation = __webpack_require__(57);
 
 var fromNavigation = _interopRequireWildcard(_navigation);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+/**
+* Pages: an object which stores a list of items by page number
+* Items: an object which stores item details by item id
+* Navigation:
+*/
 
 /* REDUCER */
 var reducer = (0, _redux.combineReducers)({
@@ -2221,8 +2241,8 @@ exports.default = _default;
 var getIssuesByPage = exports.getIssuesByPage = function getIssuesByPage(state, page) {
 	return fromPages.getItemsByPage(state.pages, page);
 };
-var getIssueById = exports.getIssueById = function getIssueById(state, id) {
-	return fromItems.getItemById(state.items, id);
+var getIssueByNumber = exports.getIssueByNumber = function getIssueByNumber(state, number) {
+	return fromItems.getItemById(state.items, number);
 };
 var getCurrentPage = exports.getCurrentPage = function getCurrentPage(state) {
 	return fromNavigation.getCurrentPage(state.navigation);
@@ -2239,7 +2259,7 @@ var _temp = function () {
 
 	__REACT_HOT_LOADER__.register(getIssuesByPage, 'getIssuesByPage', '/Users/Kidokeisuke/coiney/src/common/reducers/issues/index.js');
 
-	__REACT_HOT_LOADER__.register(getIssueById, 'getIssueById', '/Users/Kidokeisuke/coiney/src/common/reducers/issues/index.js');
+	__REACT_HOT_LOADER__.register(getIssueByNumber, 'getIssueByNumber', '/Users/Kidokeisuke/coiney/src/common/reducers/issues/index.js');
 
 	__REACT_HOT_LOADER__.register(getCurrentPage, 'getCurrentPage', '/Users/Kidokeisuke/coiney/src/common/reducers/issues/index.js');
 
@@ -2253,7 +2273,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2266,11 +2286,11 @@ exports.getItemsByPage = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _utils = __webpack_require__(9);
+var _utils = __webpack_require__(8);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _issues = __webpack_require__(5);
+var _issues = __webpack_require__(11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2323,7 +2343,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2334,13 +2354,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getItemById = undefined;
 
+var _reducerCreator;
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _utils = __webpack_require__(9);
+var _utils = __webpack_require__(8);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _issues = __webpack_require__(5);
+var _issues = __webpack_require__(11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2357,9 +2379,10 @@ var handleReceiveItems = function handleReceiveItems() {
 	var entities = response.entities,
 	    result = response.result;
 
+	var ids = Array.isArray(result) ? result : [result];
 	var nextState = Object.assign({}, state);
 
-	return result.reduce(function (acc, id, i, list) {
+	return ids.reduce(function (acc, id, i, list) {
 		acc[id] = _extends({}, entities.items[id], {
 			previousIssue: list[i - 1],
 			nextIssue: list[i + 1]
@@ -2370,7 +2393,7 @@ var handleReceiveItems = function handleReceiveItems() {
 };
 
 /* REDUCER */
-var reducer = (0, _utils2.default)(initialState, _defineProperty({}, _issues.receivePage.type, handleReceiveItems));
+var reducer = (0, _utils2.default)(initialState, (_reducerCreator = {}, _defineProperty(_reducerCreator, _issues.receivePage.type, handleReceiveItems), _defineProperty(_reducerCreator, _issues.receiveIssue.type, handleReceiveItems), _reducerCreator));
 
 var _default = reducer;
 exports.default = _default;
@@ -2401,7 +2424,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2414,11 +2437,11 @@ exports.getLastPage = exports.getNextPage = exports.getCurrentPage = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _utils = __webpack_require__(9);
+var _utils = __webpack_require__(8);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _issues = __webpack_require__(5);
+var _issues = __webpack_require__(11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2486,7 +2509,229 @@ var _temp = function () {
 ;
 
 /***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _utils = __webpack_require__(19);
+
+var _utils2 = _interopRequireDefault(_utils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var apiActionCreator = function apiActionCreator(handlerFn) {
+	return (0, _utils2.default)('REQUEST_API', handlerFn);
+};
+
+var _default = apiActionCreator;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(apiActionCreator, 'apiActionCreator', '/Users/Kidokeisuke/coiney/src/common/actions/api/utils.js');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/actions/api/utils.js');
+}();
+
+;
+
+/***/ }),
 /* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _base = __webpack_require__(12);
+
+var _Content = __webpack_require__(24);
+
+var _Content2 = _interopRequireDefault(_Content);
+
+var _Navigation = __webpack_require__(25);
+
+var _Navigation2 = _interopRequireDefault(_Navigation);
+
+var _Content3 = __webpack_require__(61);
+
+var _Content4 = _interopRequireDefault(_Content3);
+
+var _Navigation3 = __webpack_require__(77);
+
+var _Navigation4 = _interopRequireDefault(_Navigation3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var View = function View(_ref) {
+	var page = _ref.page;
+	return _react2.default.createElement(
+		_base.View,
+		null,
+		_react2.default.createElement(
+			_Content2.default,
+			null,
+			_react2.default.createElement(_Content4.default, { page: page })
+		),
+		_react2.default.createElement(
+			_Navigation2.default,
+			null,
+			_react2.default.createElement(_Navigation4.default, { page: page })
+		)
+	);
+};
+
+View.propTypes = {
+	page: _propTypes2.default.number.isRequired
+};
+
+var _default = View;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(View, 'View', '/Users/Kidokeisuke/coiney/src/common/components/Issues/View.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issues/View.jsx');
+}();
+
+;
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _templateObject = _taggedTemplateLiteral(['\n\tbody {\n\t\tmargin: 0;\n\t\tpadding: 0;\n\t\toverflow-x: hidden;\n\t\tletter-spacing: 2px;\n\t}\n\n\tdiv {\n\t\tword-wrap: break-word;\n\t}\n\n\t#app {\n\t\theight: 100%;\n\t\twidth: 100%;\n\t}\n'], ['\n\tbody {\n\t\tmargin: 0;\n\t\tpadding: 0;\n\t\toverflow-x: hidden;\n\t\tletter-spacing: 2px;\n\t}\n\n\tdiv {\n\t\tword-wrap: break-word;\n\t}\n\n\t#app {\n\t\theight: 100%;\n\t\twidth: 100%;\n\t}\n']);
+
+var _styledComponents = __webpack_require__(7);
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Global = (0, _styledComponents.css)(_templateObject);
+
+var _default = Global;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(Global, 'Global', '/Users/Kidokeisuke/coiney/src/common/styles/global.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/styles/global.jsx');
+}();
+
+;
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _endpoint = __webpack_require__(23);
+
+var _FromRedux = __webpack_require__(5);
+
+var _List = __webpack_require__(63);
+
+var _List2 = _interopRequireDefault(_List);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var IssuesByPageWithRequest = (0, _FromRedux.merge)(_FromRedux.IssuesByPage, _FromRedux.DispatchRequest);
+
+var Body = function Body(_ref) {
+	var page = _ref.page;
+
+	var endpoint = (0, _endpoint.pageEndpoint)(page);
+
+	return _react2.default.createElement(
+		IssuesByPageWithRequest,
+		{ page: page },
+		function (_ref2) {
+			var issueNumbers = _ref2.issueNumbers,
+			    dispatchRequest = _ref2.dispatchRequest;
+			return _react2.default.createElement(_List2.default, {
+				endpoint: endpoint,
+				fetch: dispatchRequest,
+				numbers: issueNumbers
+			});
+		}
+	);
+};
+
+Body.propTypes = {
+	page: _propTypes2.default.number.isRequired
+};
+
+var _default = Body;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(IssuesByPageWithRequest, 'IssuesByPageWithRequest', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Content/index.jsx');
+
+	__REACT_HOT_LOADER__.register(Body, 'Body', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Content/index.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Content/index.jsx');
+}();
+
+;
+
+/***/ }),
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2500,7 +2745,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(18);
+var _reactRedux = __webpack_require__(20);
 
 var _propTypes = __webpack_require__(1);
 
@@ -2555,270 +2800,6 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _paginate = __webpack_require__(61);
-
-var _paginate2 = _interopRequireDefault(_paginate);
-
-var _semanticUiReact = __webpack_require__(2);
-
-var _Link = __webpack_require__(23);
-
-var _Link2 = _interopRequireDefault(_Link);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var localEndpoint = function localEndpoint(page) {
-	return '/issues?page=' + page;
-};
-
-var List = function List(_ref) {
-	var currentPage = _ref.currentPage,
-	    lastPage = _ref.lastPage;
-
-	var labels = (0, _paginate2.default)(currentPage, lastPage);
-
-	var Links = labels.map(function (label) {
-		return _react2.default.createElement(
-			_Link2.default,
-			{
-				key: Math.random(),
-				active: currentPage === label,
-				disabled: label === null,
-				to: localEndpoint(label)
-			},
-			label || '...'
-		);
-	});
-
-	return _react2.default.createElement(
-		_semanticUiReact.Menu,
-		{ pagination: true },
-		_react2.default.createElement(
-			_Link2.default,
-			{
-				key: 'before',
-				disabled: currentPage <= 1,
-				to: localEndpoint(currentPage - 1)
-			},
-			_react2.default.createElement(_semanticUiReact.Icon, { name: 'left chevron' })
-		),
-		Links,
-		_react2.default.createElement(
-			_Link2.default,
-			{
-				key: 'next',
-				disabled: currentPage >= lastPage,
-				to: localEndpoint(currentPage + 1)
-			},
-			_react2.default.createElement(_semanticUiReact.Icon, { name: 'right chevron' })
-		)
-	);
-};
-
-List.propTypes = {
-	currentPage: _propTypes2.default.number.isRequired,
-	lastPage: _propTypes2.default.number.isRequired
-};
-
-var _default = List;
-exports.default = _default;
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(localEndpoint, 'localEndpoint', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/List.jsx');
-
-	__REACT_HOT_LOADER__.register(List, 'List', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/List.jsx');
-
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/List.jsx');
-}();
-
-;
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-/**
- * returns a range of consecutive numbers
- * @param {object} current Current page of pagination
- * @param {string} last Last page of pagination
- * @returns {array} An object consisting the start and end value of pagination
- */
-var getRange = function getRange(current, last) {
-	var startPage = void 0;
-	var endPage = void 0;
-
-	/* github pagination logic */
-	if (last <= 8) {
-		startPage = 1;
-		endPage = last;
-	} else if (current <= 6) {
-		startPage = 1;
-		endPage = 8;
-	} else if (current + 5 >= last) {
-		startPage = last - 7;
-		endPage = last;
-	} else {
-		startPage = current - 2;
-		endPage = current + 2;
-	}
-
-	return {
-		startPage: startPage,
-		endPage: endPage,
-		length: 1 + (endPage - startPage)
-	};
-};
-
-/**
- * returns an array of paginated labels based on github style pagination
- * @param {object} current Current page of pagination
- * @param {string} last Last page of pagination
- * @returns {array} An array which will be used to generate paginated component
- */
-var getLabels = function getLabels(current, last) {
-	var _getRange = getRange(current, last),
-	    startPage = _getRange.startPage,
-	    endPage = _getRange.endPage,
-	    length = _getRange.length;
-
-	var labels = [];
-
-	if (startPage !== 1) {
-		labels = labels.concat(1, 2, null);
-	}
-
-	for (var i = 0; i < length; i += 1) {
-		labels.push(startPage + i);
-	}
-
-	if (endPage !== last) {
-		labels = labels.concat(null, last - 1, last);
-	}
-
-	return labels;
-};
-
-var _default = getLabels;
-exports.default = _default;
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(getRange, "getRange", "/Users/Kidokeisuke/coiney/src/common/utils/paginate.js");
-
-	__REACT_HOT_LOADER__.register(getLabels, "getLabels", "/Users/Kidokeisuke/coiney/src/common/utils/paginate.js");
-
-	__REACT_HOT_LOADER__.register(_default, "default", "/Users/Kidokeisuke/coiney/src/common/utils/paginate.js");
-}();
-
-;
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _endpoint = __webpack_require__(15);
-
-var _FromRedux = __webpack_require__(7);
-
-var _List = __webpack_require__(63);
-
-var _List2 = _interopRequireDefault(_List);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var IssuesByPageWithRequest = (0, _FromRedux.merge)(_FromRedux.IssuesByPage, _FromRedux.DispatchRequest);
-
-var Body = function Body(_ref) {
-	var page = _ref.page;
-
-	var endpoint = (0, _endpoint.pageEndpoint)(page);
-
-	return _react2.default.createElement(
-		IssuesByPageWithRequest,
-		{ page: page },
-		function (_ref2) {
-			var issueIds = _ref2.issueIds,
-			    dispatchRequest = _ref2.dispatchRequest;
-			return _react2.default.createElement(_List2.default, {
-				endpoint: endpoint,
-				fetch: dispatchRequest,
-				ids: issueIds
-			});
-		}
-	);
-};
-
-Body.propTypes = {
-	page: _propTypes2.default.number.isRequired
-};
-
-var _default = Body;
-exports.default = _default;
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(IssuesByPageWithRequest, 'IssuesByPageWithRequest', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Content/index.jsx');
-
-	__REACT_HOT_LOADER__.register(Body, 'Body', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Content/index.jsx');
-
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Content/index.jsx');
-}();
-
-;
-
-/***/ }),
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2839,8 +2820,6 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _semanticUiReact = __webpack_require__(2);
 
-var _base = __webpack_require__(6);
-
 var _Fetch = __webpack_require__(64);
 
 var _Fetch2 = _interopRequireDefault(_Fetch);
@@ -2854,47 +2833,39 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var List = function List(_ref) {
 	var endpoint = _ref.endpoint,
 	    fetch = _ref.fetch,
-	    ids = _ref.ids;
+	    numbers = _ref.numbers;
 
-	var items = ids.map(function (id) {
+	var items = numbers.map(function (number) {
 		return _react2.default.createElement(
 			_semanticUiReact.Segment,
-			{ key: id, attached: true },
-			_react2.default.createElement(_Item2.default, { id: id })
+			{ key: number, attached: true },
+			_react2.default.createElement(_Item2.default, { number: number })
 		);
 	});
 
-	return _react2.default.createElement(
-		_semanticUiReact.Segment.Group,
+	return [_react2.default.createElement(
+		_semanticUiReact.Header,
+		{ as: 'h3', attached: 'top' },
+		'Whats wrong with Angular'
+	), _react2.default.createElement(
+		_Fetch2.default,
 		{
-			as: _base.Content,
-			raised: true
+			endpoint: endpoint,
+			fetch: fetch,
+			shouldFetch: numbers.length === 0
 		},
-		_react2.default.createElement(
-			_semanticUiReact.Header,
-			{ as: 'h3', attached: 'top' },
-			'Whats wrong with Angular'
-		),
-		_react2.default.createElement(
-			_Fetch2.default,
-			{
-				endpoint: endpoint,
-				fetch: fetch,
-				shouldFetch: ids.length === 0
-			},
-			items
-		)
-	);
+		items
+	)];
 };
 
 List.propTypes = {
 	endpoint: _propTypes2.default.string.isRequired,
 	fetch: _propTypes2.default.func.isRequired,
-	ids: _propTypes2.default.arrayOf(_propTypes2.default.number)
+	numbers: _propTypes2.default.arrayOf(_propTypes2.default.number)
 };
 
 List.defaultProps = {
-	ids: []
+	numbers: []
 };
 
 var _default = List;
@@ -2934,7 +2905,7 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _FromRedux = __webpack_require__(7);
+var _FromRedux = __webpack_require__(5);
 
 var _Loader = __webpack_require__(65);
 
@@ -3082,7 +3053,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _semanticUiReact = __webpack_require__(2);
 
-var _Overlay = __webpack_require__(24);
+var _Overlay = __webpack_require__(26);
 
 var _Overlay2 = _interopRequireDefault(_Overlay);
 
@@ -3179,7 +3150,7 @@ var _reactRouterDom = __webpack_require__(3);
 
 var _semanticUiReact = __webpack_require__(2);
 
-var _Overlay = __webpack_require__(24);
+var _Overlay = __webpack_require__(26);
 
 var _Overlay2 = _interopRequireDefault(_Overlay);
 
@@ -5024,22 +4995,22 @@ var _semanticUiReact = __webpack_require__(2);
 
 var _Styles = __webpack_require__(76);
 
-var _FromRedux = __webpack_require__(7);
+var _FromRedux = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Item = function Item(_ref) {
-	var id = _ref.id;
+	var number = _ref.number;
 	return _react2.default.createElement(
-		_FromRedux.IssueById,
-		{ id: id },
+		_FromRedux.IssueByNumber,
+		{ number: number },
 		function (_ref2) {
 			var issue = _ref2.issue;
 			return _react2.default.createElement(
 				_Styles.CustomGrid,
 				{
 					as: _reactRouterDom.Link,
-					to: '/issue/' + id,
+					to: '/issue/' + number,
 					divided: true,
 					stackable: true
 				},
@@ -5063,7 +5034,7 @@ var Item = function Item(_ref) {
 };
 
 Item.propTypes = {
-	id: _propTypes2.default.number.isRequired
+	number: _propTypes2.default.number.isRequired
 };
 
 var _default = Item;
@@ -5098,7 +5069,7 @@ var _templateObject = _taggedTemplateLiteral(['\n\tcursor: pointer;\n\n\t&:hover
 
 var _semanticUiReact = __webpack_require__(2);
 
-var _styledComponents = __webpack_require__(10);
+var _styledComponents = __webpack_require__(7);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -5138,40 +5109,34 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _endpoint = __webpack_require__(15);
+var _FromRedux = __webpack_require__(5);
 
-var _reactRouterDom = __webpack_require__(3);
+var _List = __webpack_require__(78);
 
-var _FromRedux = __webpack_require__(7);
-
-var _View = __webpack_require__(78);
-
-var _View2 = _interopRequireDefault(_View);
+var _List2 = _interopRequireDefault(_List);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Issue = function Issue(_ref) {
-	var match = _ref.match;
-	var id = match.params.id;
-
-
+var Tabs = function Tabs(_ref) {
+	var page = _ref.page;
 	return _react2.default.createElement(
-		_FromRedux.IssueById,
-		{ id: id },
+		_FromRedux.LastPage,
+		null,
 		function (_ref2) {
-			var issue = _ref2.issue;
-			return issue ? _react2.default.createElement(_View2.default, { issue: issue }) : _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
+			var lastPage = _ref2.lastPage;
+			return lastPage !== null && _react2.default.createElement(_List2.default, {
+				currentPage: page,
+				lastPage: lastPage
+			});
 		}
 	);
 };
 
-Issue.propTypes = {
-	match: _propTypes2.default.objectOf(_propTypes2.default.any).isRequired
+Tabs.propTypes = {
+	page: _propTypes2.default.number.isRequired
 };
 
-Issue.initialRender = function (url) {};
-
-var _default = Issue;
+var _default = Tabs;
 exports.default = _default;
 ;
 
@@ -5180,9 +5145,9 @@ var _temp = function () {
 		return;
 	}
 
-	__REACT_HOT_LOADER__.register(Issue, 'Issue', '/Users/Kidokeisuke/coiney/src/common/components/Issue/index.jsx');
+	__REACT_HOT_LOADER__.register(Tabs, 'Tabs', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/index.jsx');
 
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issue/index.jsx');
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/index.jsx');
 }();
 
 ;
@@ -5206,15 +5171,281 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _base = __webpack_require__(6);
+var _paginate = __webpack_require__(79);
 
-var _Navigation = __webpack_require__(79);
+var _paginate2 = _interopRequireDefault(_paginate);
+
+var _semanticUiReact = __webpack_require__(2);
+
+var _Link = __webpack_require__(27);
+
+var _Link2 = _interopRequireDefault(_Link);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var localEndpoint = function localEndpoint(page) {
+	return '/issues?page=' + page;
+};
+
+var List = function List(_ref) {
+	var currentPage = _ref.currentPage,
+	    lastPage = _ref.lastPage;
+
+	var labels = (0, _paginate2.default)(currentPage, lastPage);
+
+	var Links = labels.map(function (label) {
+		return _react2.default.createElement(
+			_Link2.default,
+			{
+				key: Math.random(),
+				active: currentPage === label,
+				disabled: label === null,
+				to: localEndpoint(label)
+			},
+			label || '...'
+		);
+	});
+
+	return [_react2.default.createElement(
+		_Link2.default,
+		{
+			key: 'previousPage',
+			disabled: currentPage <= 1,
+			to: localEndpoint(currentPage - 1)
+		},
+		_react2.default.createElement(_semanticUiReact.Icon, { name: 'left chevron' })
+	), Links, _react2.default.createElement(
+		_Link2.default,
+		{
+			key: 'nextPage',
+			disabled: currentPage >= lastPage,
+			to: localEndpoint(currentPage + 1)
+		},
+		_react2.default.createElement(_semanticUiReact.Icon, { name: 'right chevron' })
+	)];
+};
+
+List.propTypes = {
+	currentPage: _propTypes2.default.number.isRequired,
+	lastPage: _propTypes2.default.number.isRequired
+};
+
+var _default = List;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(localEndpoint, 'localEndpoint', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/List.jsx');
+
+	__REACT_HOT_LOADER__.register(List, 'List', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/List.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issues/Navigation/List.jsx');
+}();
+
+;
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+/**
+ * returns a range of consecutive numbers
+ * @param {object} current Current page of pagination
+ * @param {string} last Last page of pagination
+ * @returns {array} An object consisting the start and end value of pagination
+ */
+var getRange = function getRange(current, last) {
+	var startPage = void 0;
+	var endPage = void 0;
+
+	/* github pagination logic */
+	if (last <= 8) {
+		startPage = 1;
+		endPage = last;
+	} else if (current <= 6) {
+		startPage = 1;
+		endPage = 8;
+	} else if (current + 5 >= last) {
+		startPage = last - 7;
+		endPage = last;
+	} else {
+		startPage = current - 2;
+		endPage = current + 2;
+	}
+
+	return {
+		startPage: startPage,
+		endPage: endPage,
+		length: 1 + (endPage - startPage)
+	};
+};
+
+/**
+ * returns an array of paginated labels based on github style pagination
+ * @param {object} current Current page of pagination
+ * @param {string} last Last page of pagination
+ * @returns {array} An array which will be used to generate paginated component
+ */
+var getLabels = function getLabels(current, last) {
+	var _getRange = getRange(current, last),
+	    startPage = _getRange.startPage,
+	    endPage = _getRange.endPage,
+	    length = _getRange.length;
+
+	var labels = [];
+
+	if (startPage !== 1) {
+		labels = labels.concat(1, 2, null);
+	}
+
+	for (var i = 0; i < length; i += 1) {
+		labels.push(startPage + i);
+	}
+
+	if (endPage !== last) {
+		labels = labels.concat(null, last - 1, last);
+	}
+
+	return labels;
+};
+
+var _default = getLabels;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(getRange, "getRange", "/Users/Kidokeisuke/coiney/src/common/utils/paginate.js");
+
+	__REACT_HOT_LOADER__.register(getLabels, "getLabels", "/Users/Kidokeisuke/coiney/src/common/utils/paginate.js");
+
+	__REACT_HOT_LOADER__.register(_default, "default", "/Users/Kidokeisuke/coiney/src/common/utils/paginate.js");
+}();
+
+;
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _api = __webpack_require__(17);
+
+var _reactRouterDom = __webpack_require__(3);
+
+var _FromRedux = __webpack_require__(5);
+
+var _View = __webpack_require__(81);
+
+var _View2 = _interopRequireDefault(_View);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Issue = function Issue(_ref) {
+	var match = _ref.match;
+	var number = match.params.number;
+
+
+	return _react2.default.createElement(
+		_FromRedux.IssueByNumber,
+		{ number: number },
+		function (_ref2) {
+			var issue = _ref2.issue;
+			return issue ? _react2.default.createElement(_View2.default, { issue: issue }) : _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
+		}
+	);
+};
+
+Issue.propTypes = {
+	match: _propTypes2.default.objectOf(_propTypes2.default.any).isRequired
+};
+
+Issue.initialAction = function (url) {
+	var index = url.search(/\/\d+/);
+	var issueNumber = url.slice(index + 1);
+
+	return (0, _api.requestIssue)(issueNumber || '');
+};
+
+var _default = Issue;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(Issue, 'Issue', '/Users/Kidokeisuke/coiney/src/common/components/Issue/index.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issue/index.jsx');
+}();
+
+;
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _base = __webpack_require__(12);
+
+var _Content = __webpack_require__(24);
+
+var _Content2 = _interopRequireDefault(_Content);
+
+var _Navigation = __webpack_require__(25);
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
 
-var _Content = __webpack_require__(80);
+var _Content3 = __webpack_require__(82);
 
-var _Content2 = _interopRequireDefault(_Content);
+var _Content4 = _interopRequireDefault(_Content3);
+
+var _Navigation3 = __webpack_require__(89);
+
+var _Navigation4 = _interopRequireDefault(_Navigation3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5226,11 +5457,19 @@ var View = function View(_ref) {
 	return _react2.default.createElement(
 		_base.View,
 		null,
-		_react2.default.createElement(_Content2.default, { issue: issue }),
-		_react2.default.createElement(_Navigation2.default, {
-			previous: issue.previousIssue,
-			next: issue.nextIssue
-		})
+		_react2.default.createElement(
+			_Content2.default,
+			null,
+			_react2.default.createElement(_Content4.default, { issue: issue })
+		),
+		_react2.default.createElement(
+			_Navigation2.default,
+			null,
+			_react2.default.createElement(_Navigation4.default, {
+				previous: issue.previousIssue,
+				next: issue.nextIssue
+			})
+		)
 	);
 };
 
@@ -5255,7 +5494,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 79 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5275,117 +5514,11 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _semanticUiReact = __webpack_require__(2);
 
-var _base = __webpack_require__(6);
-
-var _FromRedux = __webpack_require__(7);
-
-var _Link = __webpack_require__(23);
-
-var _Link2 = _interopRequireDefault(_Link);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var localEndpoint = function localEndpoint(id) {
-	return '/issue/' + id;
-};
-
-var Navigation = function Navigation(_ref) {
-	var previous = _ref.previous,
-	    next = _ref.next;
-	return _react2.default.createElement(
-		_base.Navigation,
-		null,
-		_react2.default.createElement(
-			_semanticUiReact.Menu,
-			{ compact: true },
-			_react2.default.createElement(
-				_Link2.default,
-				{
-					disabled: previous === null,
-					to: localEndpoint(previous)
-				},
-				'Previous Issue'
-			),
-			_react2.default.createElement(
-				_FromRedux.CurrentPage,
-				null,
-				function (_ref2) {
-					var currentPage = _ref2.currentPage;
-					return _react2.default.createElement(
-						_Link2.default,
-						{ to: '/issues?page=' + currentPage },
-						'Back to list'
-					);
-				}
-			),
-			_react2.default.createElement(
-				_Link2.default,
-				{
-					disabled: next === null,
-					to: localEndpoint(next)
-				},
-				'Next Issue'
-			)
-		)
-	);
-};
-
-Navigation.propTypes = {
-	previous: _propTypes2.default.number,
-	next: _propTypes2.default.number
-};
-
-Navigation.defaultProps = {
-	previous: null,
-	next: null
-};
-
-var _default = Navigation;
-exports.default = _default;
-;
-
-var _temp = function () {
-	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
-		return;
-	}
-
-	__REACT_HOT_LOADER__.register(localEndpoint, 'localEndpoint', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Navigation/index.jsx');
-
-	__REACT_HOT_LOADER__.register(Navigation, 'Navigation', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Navigation/index.jsx');
-
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Navigation/index.jsx');
-}();
-
-;
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _semanticUiReact = __webpack_require__(2);
-
-var _base = __webpack_require__(6);
-
-var _Article = __webpack_require__(81);
+var _Article = __webpack_require__(83);
 
 var _Article2 = _interopRequireDefault(_Article);
 
-var _Title = __webpack_require__(86);
+var _Title = __webpack_require__(88);
 
 var _Title2 = _interopRequireDefault(_Title);
 
@@ -5402,27 +5535,23 @@ var Content = function Content(_ref) {
 
 
 	return _react2.default.createElement(
-		_semanticUiReact.Segment,
-		{ raised: true },
-		_react2.default.createElement(
-			_semanticUiReact.Container,
-			{
-				as: _base.Content,
-				text: true
-			},
-			_react2.default.createElement(_Title2.default, {
-				number: number,
-				updatedAt: updatedAt,
-				url: htmlUrl,
-				title: title
-			}),
-			_react2.default.createElement(_semanticUiReact.Divider, null),
-			_react2.default.createElement(_Article2.default, {
-				source: body,
-				user: user
-			}),
-			_react2.default.createElement(_semanticUiReact.Divider, null)
-		)
+		_semanticUiReact.Container,
+		{
+			text: true
+		},
+		_react2.default.createElement(_semanticUiReact.Divider, { hidden: true }),
+		_react2.default.createElement(_Title2.default, {
+			number: number,
+			updatedAt: updatedAt,
+			url: htmlUrl,
+			title: title
+		}),
+		_react2.default.createElement(_semanticUiReact.Divider, null),
+		_react2.default.createElement(_Article2.default, {
+			source: body,
+			user: user
+		}),
+		_react2.default.createElement(_semanticUiReact.Divider, null)
 	);
 };
 
@@ -5447,7 +5576,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 81 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5467,9 +5596,9 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _semanticUiReact = __webpack_require__(2);
 
-var _Styles = __webpack_require__(25);
+var _Styles = __webpack_require__(28);
 
-var _Markdown = __webpack_require__(82);
+var _Markdown = __webpack_require__(84);
 
 var _Markdown2 = _interopRequireDefault(_Markdown);
 
@@ -5517,7 +5646,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 82 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5535,15 +5664,15 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactMarkdown = __webpack_require__(83);
+var _reactMarkdown = __webpack_require__(85);
 
 var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
 
-var _Url = __webpack_require__(84);
+var _Url = __webpack_require__(86);
 
 var _Url2 = _interopRequireDefault(_Url);
 
-var _Code = __webpack_require__(85);
+var _Code = __webpack_require__(87);
 
 var _Code2 = _interopRequireDefault(_Code);
 
@@ -5581,13 +5710,13 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 83 */
+/* 85 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-markdown");
 
 /***/ }),
-/* 84 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5640,7 +5769,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 85 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5658,7 +5787,7 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Styles = __webpack_require__(25);
+var _Styles = __webpack_require__(28);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5696,7 +5825,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5772,7 +5901,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 87 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5782,27 +5911,121 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _redux = __webpack_require__(17);
+var _react = __webpack_require__(0);
 
-var _reduxDevtoolsExtension = __webpack_require__(88);
+var _react2 = _interopRequireDefault(_react);
 
-var _reduxLogger = __webpack_require__(89);
+var _propTypes = __webpack_require__(1);
 
-var _reduxThunk = __webpack_require__(90);
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _FromRedux = __webpack_require__(5);
+
+var _Link = __webpack_require__(27);
+
+var _Link2 = _interopRequireDefault(_Link);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var localEndpoint = function localEndpoint(id) {
+	return '/issue/' + id;
+};
+
+var Navigation = function Navigation(_ref) {
+	var previous = _ref.previous,
+	    next = _ref.next;
+	return [_react2.default.createElement(
+		_Link2.default,
+		{
+			key: 'previousIssue',
+			disabled: previous === null,
+			to: localEndpoint(previous)
+		},
+		'Previous Issue'
+	), _react2.default.createElement(
+		_FromRedux.CurrentPage,
+		{ key: 'currentIssue' },
+		function (_ref2) {
+			var currentPage = _ref2.currentPage;
+			return _react2.default.createElement(
+				_Link2.default,
+				{ to: '/issues?page=' + currentPage },
+				'Back to list'
+			);
+		}
+	), _react2.default.createElement(
+		_Link2.default,
+		{
+			key: 'nextIssue',
+			disabled: next === null,
+			to: localEndpoint(next)
+		},
+		'Next Issue'
+	)];
+};
+
+Navigation.propTypes = {
+	previous: _propTypes2.default.number,
+	next: _propTypes2.default.number
+};
+
+Navigation.defaultProps = {
+	previous: null,
+	next: null
+};
+
+var _default = Navigation;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(localEndpoint, 'localEndpoint', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Navigation/index.jsx');
+
+	__REACT_HOT_LOADER__.register(Navigation, 'Navigation', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Navigation/index.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Navigation/index.jsx');
+}();
+
+;
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _redux = __webpack_require__(18);
+
+var _reduxDevtoolsExtension = __webpack_require__(91);
+
+var _reduxLogger = __webpack_require__(92);
+
+var _reduxThunk = __webpack_require__(93);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _api = __webpack_require__(91);
+var _api = __webpack_require__(94);
 
 var _api2 = _interopRequireDefault(_api);
 
-var _reducers = __webpack_require__(16);
+var _reducers = __webpack_require__(9);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var configureStore = function configureStore(initialState) {
+var configureStore = function configureStore() {
+	var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
 	var middlewares = [_api2.default, _reduxThunk2.default];
 	var applyHandler = _redux.applyMiddleware;
 
@@ -5825,33 +6048,33 @@ var _temp = function () {
 		return;
 	}
 
-	__REACT_HOT_LOADER__.register(configureStore, 'configureStore', '/Users/Kidokeisuke/coiney/src/common/configureStore.jsx');
+	__REACT_HOT_LOADER__.register(configureStore, 'configureStore', '/Users/Kidokeisuke/coiney/src/common/configureStore.js');
 
-	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/configureStore.jsx');
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/configureStore.js');
 }();
 
 ;
 
 /***/ }),
-/* 88 */
+/* 91 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-devtools-extension");
 
 /***/ }),
-/* 89 */
+/* 92 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-logger");
 
 /***/ }),
-/* 90 */
+/* 93 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 91 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5861,17 +6084,13 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _issues = __webpack_require__(5);
-
-var issuesActions = _interopRequireWildcard(_issues);
-
-var _fetch = __webpack_require__(11);
+var _fetch = __webpack_require__(10);
 
 var fetchActions = _interopRequireWildcard(_fetch);
 
-var _Reducers = __webpack_require__(16);
+var _Reducers = __webpack_require__(9);
 
-var _utils = __webpack_require__(92);
+var _utils = __webpack_require__(95);
 
 var _utils2 = _interopRequireDefault(_utils);
 
@@ -5883,23 +6102,25 @@ var apiMiddleware = function apiMiddleware(_ref) {
 	var getState = _ref.getState;
 	return function (next) {
 		return function (action) {
-			if (action.type === issuesActions.requestApi.type) {
+			if (action.type === 'REQUEST_API') {
 				var _action$payload = action.payload,
+				    cache = _action$payload.cache,
 				    endpoint = _action$payload.endpoint,
-				    page = _action$payload.page,
-				    schema = _action$payload.schema;
+				    schema = _action$payload.schema,
+				    onSuccess = _action$payload.onSuccess;
+
 
 				var state = getState();
-
+				console.log(endpoint, 'ENODIFJODIJFODIFJOSDIFJODSIFJOSIDJF');
 				/* don't fetch if it already exists or in the middle of fetching */
-				if ((0, _Reducers.getIssuesByPage)(state, page) || (0, _Reducers.getFetchStatus)(state, endpoint)) {
+				if (cache(state) || (0, _Reducers.getFetchStatus)(state, endpoint)) {
 					return Promise.resolve();
 				}
 
 				next(fetchActions.requestFetch(endpoint));
 
 				return (0, _utils2.default)(schema, endpoint).then(function (res) {
-					next(issuesActions.receivePage(page, res));
+					next(onSuccess(res, endpoint));
 					next(fetchActions.successFetch(endpoint));
 				}, function (error) {
 					return next(fetchActions.failureFetch(error, endpoint));
@@ -5928,7 +6149,7 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 92 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5938,17 +6159,17 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _normalizr = __webpack_require__(21);
+var _normalizr = __webpack_require__(22);
 
-var _camelize = __webpack_require__(93);
+var _camelize = __webpack_require__(96);
 
 var _camelize2 = _interopRequireDefault(_camelize);
 
-var _axios = __webpack_require__(94);
+var _axios = __webpack_require__(97);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _parse = __webpack_require__(20);
+var _parse = __webpack_require__(16);
 
 var _parse2 = _interopRequireDefault(_parse);
 
@@ -5993,6 +6214,8 @@ var fetch = function fetch(schema, endpoint) {
 			return Promise.reject(new Error('No such api endpoint'));
 		}
 
+		console.log(response, "DNFOISDFODIJFOSIDJFODIJFOSIDJFOIDSJFOIDSJFO");
+
 		var last = getLastPage(response);
 		var camelized = (0, _camelize2.default)(response.data);
 
@@ -6021,19 +6244,19 @@ var _temp = function () {
 ;
 
 /***/ }),
-/* 93 */
+/* 96 */
 /***/ (function(module, exports) {
 
 module.exports = require("camelize");
 
 /***/ }),
-/* 94 */
+/* 97 */
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ }),
-/* 95 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6051,7 +6274,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(3);
 
-var _routes = __webpack_require__(19);
+var _routes = __webpack_require__(21);
 
 var _routes2 = _interopRequireDefault(_routes);
 

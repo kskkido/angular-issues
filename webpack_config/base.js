@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const { join } = require('path')
@@ -28,14 +27,20 @@ const commonConfig = {
 		extensions: ['.js', '.jsx', '.json', '*'],
 	},
 	module: {
-		rules: [{
-			test: /\.jsx?$/,
-			exclude: /(node_modules|bower_components)/,
-			loader: 'babel-loader',
-			options: {
-				presets: ['react', 'env', 'stage-0']
+		rules: [
+			{
+				test: /\.jsx?$/,
+				exclude: /(node_modules|bower_components)/,
+				loader: 'babel-loader',
+				options: {
+					presets: ['react', 'env', 'stage-0']
+				}
+			},
+			{
+				test: /\.css$/,
+				loader: 'css-loader'
 			}
-		}]
+		]
 	}
 }
 

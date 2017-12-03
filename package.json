@@ -1,5 +1,5 @@
 {
-  "name": "boiledeggs",
+  "name": "angularIssues",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "build-prod": "NODE_ENV=production webpack",
     "build-dev": "NODE_ENV=development webpack",
     "start": "node ./server",
-    "start-dev": "npm run build-dev & NODE_ENV=development npm run start",
+    "start-dev": "npm run build-dev & NODE_ENV=development nodemon ./server",
     "start-prod": "npm run build-prod & NODE_ENV=production npm run start"
   },
   "keywords": [],
@@ -24,7 +24,6 @@
     "normalizr": "^3.2.4",
     "prop-types": "^15.6.0",
     "query-string": "^5.0.1",
-    "ramda": "^0.25.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-markdown": "^3.1.0",
@@ -49,7 +48,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "chai": "^4.1.0",
     "compression-webpack-plugin": "^1.0.0",
-    "enzyme": "^3.0.0",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^4.12.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.8.3",
