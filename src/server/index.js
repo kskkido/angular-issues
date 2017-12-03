@@ -16,7 +16,7 @@ export default app
 	.use(bodyParser.json())
 	.use(express.static(PATH_STATIC))
 
-	.use(ssr)
+	.get('*', ssr)
 
 	.use((err, req, res) => {
 		console.error(err)
