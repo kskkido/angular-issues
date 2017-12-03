@@ -851,7 +851,7 @@ var app = (0, _express2.default)();
 
 var PATH_STATIC = (0, _path.join)(_Root.root, 'dist');
 
-exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use(_express2.default.static(_Root.root + '/dist')).get('/', function (req, res) {
+exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use(_express2.default.static(PATH_STATIC)).get('/', function (req, res) {
 	res.redirect('/issues?page=1');
 }).get('*', _ssr2.default).use(function (err, req, res) {
 	console.error(err);
