@@ -11,6 +11,10 @@ const PATHS = {
 const commonConfig = {
 	entry: PATHS.entry,
 	target: 'node',
+	node: {
+		__dirname: false,
+		__filename: false,
+	},
 	externals: [nodeExternals()],
 	output: {
 		path: PATHS.output,
