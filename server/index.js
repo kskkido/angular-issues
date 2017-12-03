@@ -850,9 +850,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var app = (0, _express2.default)();
 
 var PATH_STATIC = (0, _path.join)(_Root.root, '/dist');
-console.log(Object({"NODE_ENV":"production"}).CWD, PATH_STATIC);
 
-exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use(_express2.default.static(PATH_STATIC)).get('/', function (req, res) {
+exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use('/public', _express2.default.static(PATH_STATIC)).get('/', function (req, res) {
 	res.redirect('/issues?page=1');
 }).get('*', _ssr2.default).use(function (err, req, res) {
 	console.error(err);
@@ -1089,7 +1088,7 @@ var createHtml = function createHtml(_ref) {
 
 	var serializedState = (0, _serializeJavascript2.default)(initialState);
 
-	return '\n\t<!DOCTYPE html>\n\t<html>\n\t\t<head>\n\t\t\t<meta charset="utf-8" />\n\t\t\t<meta name="viewport" content="width=device-width, initial-scale=1">\n\t\t\t<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto" rel="stylesheet">\n\t\t\t<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>\n\t\t\t' + css + '\n\t\t\t<script>window.__INITIAL_STATE__=' + serializedState + '</script>\n\t\t\t<script async defer src="bundle.js"></script>\n\t\t\t<title>angular-issues</title>\n\t\t</head>\n\t\t<body>\n\t\t\t<div id="app">' + markup + '</div>\n\t\t</body>\n\t</html>\n\t';
+	return '\n\t<!DOCTYPE html>\n\t<html>\n\t\t<head>\n\t\t\t<meta charset="utf-8" />\n\t\t\t<meta name="viewport" content="width=device-width, initial-scale=1">\n\t\t\t<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto" rel="stylesheet">\n\t\t\t<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>\n\t\t\t' + css + '\n\t\t\t<script>window.__INITIAL_STATE__=' + serializedState + '</script>\n\t\t\t<script async defer src="/public/bundle.js"></script>\n\t\t\t<title>angular-issues</title>\n\t\t</head>\n\t\t<body>\n\t\t\t<div id="app">' + markup + '</div>\n\t\t</body>\n\t</html>\n\t';
 }; /* eslint-disable react/jsx-filename-extension */
 
 
