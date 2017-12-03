@@ -1,4 +1,4 @@
-import path from 'path'
+import { join } from 'path'
 import { port, root } from 'Root'
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -6,14 +6,13 @@ import ssr from './ssr'
 
 const app = express()
 
-const PATH_STATIC = path.join(__dirname, '..', '/dist')
-console.log(__dirname, path.join(__dirname, '/dist'))
+const PATH_STATIC = join(root, '/dist')
 
 export default app
 	.use(bodyParser.urlencoded({ extended: false }))
 	.use(bodyParser.json())
 
-	.use('/dist', express.static(PATH_STATIC, { extensions: ['js'] }))
+	.use('/dist', express.static(PATH_STATIC))
 
 	.get('/', (req, res) => {
 		res.redirect('/issues?page=1')

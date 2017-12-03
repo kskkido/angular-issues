@@ -831,8 +831,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _path = __webpack_require__(15);
 
-var _path2 = _interopRequireDefault(_path);
-
 var _Root = __webpack_require__(27);
 
 var _express = __webpack_require__(30);
@@ -851,10 +849,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 
-var PATH_STATIC = _path2.default.join(__dirname, '..', '/dist');
-console.log(__dirname, _path2.default.join(__dirname, '/dist'));
+var PATH_STATIC = (0, _path.join)(_Root.root, '/dist');
 
-exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use('/dist', _express2.default.static(PATH_STATIC, { extensions: ['js'] })).get('/', function (req, res) {
+exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use('/dist', _express2.default.static(PATH_STATIC)).get('/', function (req, res) {
 	res.redirect('/issues?page=1');
 }).get('*', _ssr2.default).use(function (err, req, res) {
 	console.error(err, req.url);
