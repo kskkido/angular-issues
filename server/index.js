@@ -864,7 +864,10 @@ exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).
 	}
 
 	return (0, _ssr2.default)(req, res, next);
-}).use(_express2.default.static(PATH_STATIC));
+}).use(_express2.default.static(PATH_STATIC)).use(function (err, req, res) {
+	console.error(err, req.url, 'DNOOOO');
+	res.status(err.status || 500).send(err.message || 'Internal server error');
+});
 
 
 if (module === __webpack_require__.c[__webpack_require__.s]) {
