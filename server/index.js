@@ -823,7 +823,7 @@ var Pre = exports.Pre = _styledComponents2.default.pre(_templateObject2);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
+/* WEBPACK VAR INJECTION */(function(__dirname, module) {
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -851,21 +851,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 
-var PATH_STATIC = _path2.default.join(_Root.root, 'dist');
+var PATH_STATIC = _path2.default.join(__dirname, '..', '/dist');
 
-exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).get('/', function (req, res) {
+exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use(_express2.default.static(PATH_STATIC)).get('/', function (req, res) {
 	res.redirect('/issues?page=1');
-}).get('*', function (req, res, next) {
-	var exts = new Set(['.css', '.gz', '.map', '.js']);
-	var ext = _path2.default.extname(req.url);
-
-	if (exts.has(ext)) {
-		return next();
-	}
-
-	return (0, _ssr2.default)(req, res, next);
-}).use(_express2.default.static(PATH_STATIC)).use(function (err, req, res) {
-	console.error(err, req.url, 'DNOOOO');
+}).get('*', _ssr2.default).use(function (err, req, res) {
+	console.error(err, req.url);
 	res.status(err.status || 500).send(err.message || 'Internal server error');
 });
 
@@ -882,7 +873,7 @@ if (module === __webpack_require__.c[__webpack_require__.s]) {
 		console.log('Listening on http://' + urlSafeHost + ':' + _Root.port);
 	});
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, "/", __webpack_require__(26)(module)))
 
 /***/ }),
 /* 26 */

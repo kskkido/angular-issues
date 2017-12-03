@@ -6,31 +6,22 @@ import ssr from './ssr'
 
 const app = express()
 
-const PATH_STATIC = path.join(root, 'dist')
+const PATH_STATIC = path.join(__dirname, '..', '/dist')
 
 export default app
 	.use(bodyParser.urlencoded({ extended: false }))
 	.use(bodyParser.json())
 
+	.use(express.static(PATH_STATIC))
+
 	.get('/', (req, res) => {
 		res.redirect('/issues?page=1')
 	})
 
-	.get('*', (req, res, next) => {
-		const exts = new Set(['.css', '.gz', '.map', '.js'])
-		const ext = path.extname(req.url)
-
-		if (exts.has(ext)) {
-			return next()
-		}
-
-		return ssr(req, res, next)
-	})
-
-	.use(express.static(PATH_STATIC))
+	.get('*', ssr)
 
 	.use((err, req, res) => {
-		console.error(err, req.url, 'DNOOOO')
+		console.error(err, req.url)
 		res.status(err.status || 500).send(err.message || 'Internal server error')
 	})
 
