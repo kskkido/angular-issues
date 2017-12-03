@@ -18,7 +18,7 @@ module.exports = {
 	},
 	get name() { return pkg.name },
 	get port() { return env.PORT || 1337 },
-	root: process.cwd(),
+	root: __dirname,
 	package: pkg,
 	env,
 }

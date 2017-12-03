@@ -906,7 +906,7 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(__dirname) {
 
 /* eslint-disable global-require, import/no-dynamic-require */
 // define custom env constants through env.json file in your computers home directory
@@ -936,10 +936,11 @@ module.exports = {
 	get port() {
 		return env.PORT || 1337;
 	},
-	root: process.cwd(),
+	root: __dirname,
 	package: pkg,
 	env: env
 };
+/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
 /* 28 */
