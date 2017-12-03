@@ -15,7 +15,7 @@ const commonConfig = {
 	output: {
 		path: PATHS.output,
 		filename: 'index.js',
-		libraryTarget: 'commonjs2'
+		libraryTarget: 'commonjs2',
 	}
 }
 

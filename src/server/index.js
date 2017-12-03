@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+import { join } from 'path'
 import { port, root } from 'Root'
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -6,13 +6,13 @@ import ssr from './ssr'
 
 const app = express()
 
-const PATH_STATIC = resolve(root, '/dist')
+const PATH_STATIC = join(root, 'dist')
 
 export default app
 	.use(bodyParser.urlencoded({ extended: false }))
 	.use(bodyParser.json())
 
-	.use('/public', express.static(PATH_STATIC))
+	.use(express.static(root + '/dist'))
 
 	.get('/', (req, res) => {
 		res.redirect('/issues?page=1')
