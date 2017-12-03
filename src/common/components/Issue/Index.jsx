@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { IssueByNumber } from 'Components/FromRedux'
 import View from './View'
 
+/* single issue component */
 const Issue = ({ match }) => {
 	const { number } = match.params
 

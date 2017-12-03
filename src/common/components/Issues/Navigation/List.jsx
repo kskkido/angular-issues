@@ -7,6 +7,7 @@ import Link from 'Components/Link'
 
 const localEndpoint = page => `/issues?page=${page}`
 
+/* render pagination */
 const List = ({ currentPage, lastPage }) => {
 	const labels = paginate(currentPage, lastPage)
 

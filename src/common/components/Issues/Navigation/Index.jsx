@@ -3,13 +3,12 @@ import PropTypes from 'prop-types'
 import { LastPage } from 'Components/FromRedux'
 import List from './List'
 
-/* redirects to root if query does not contain page property */
 const Navigation = ({ page }) => (
 	<LastPage>
-		{({ lastPage }) => lastPage !== null && (
+		{({ lastPage }) => (
 			<List
 				currentPage={page}
-				lastPage={lastPage}
+				lastPage={lastPage || 1}
 			/>
 		)}
 	</LastPage>
