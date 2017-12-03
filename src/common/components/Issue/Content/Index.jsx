@@ -30,7 +30,7 @@ const Content = ({ issue }) => {
 				source={body}
 				user={user}
 			/>
-			<Divider />
+			<Divider section />
 		</Container>
 	)
 }

@@ -1125,13 +1125,10 @@ var _temp = function () {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.Pre = exports.User = exports.Navigation = exports.Content = exports.Container = undefined;
+exports.Pre = exports.User = undefined;
 
-var _templateObject = _taggedTemplateLiteral(['\n\tmargin: 20px 0;\n\n\t& > div {\n\t\tmargin-top: 20px;\n\t}\n'], ['\n\tmargin: 20px 0;\n\n\t& > div {\n\t\tmargin-top: 20px;\n\t}\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n\theight: 80vh;\n\toverflow-y: scroll;\n'], ['\n\theight: 80vh;\n\toverflow-y: scroll;\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n'], ['\n\tdisplay: flex;\n\tflex-direction: column;\n\talign-items: center;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n\tpadding-bottom: 10px;\n'], ['\n\tpadding-bottom: 10px;\n']),
-    _templateObject5 = _taggedTemplateLiteral(['\n\tbackground: rgba(0,0,0,.05);\n\tpadding: 10px;\n\twhite-space: pre-wrap;\n'], ['\n\tbackground: rgba(0,0,0,.05);\n\tpadding: 10px;\n\twhite-space: pre-wrap;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\tpadding-bottom: 10px;\n'], ['\n\tpadding-bottom: 10px;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n\tbackground: rgba(0,0,0,.05);\n\tpadding: 10px;\n\twhite-space: pre-wrap;\n'], ['\n\tbackground: rgba(0,0,0,.05);\n\tpadding: 10px;\n\twhite-space: pre-wrap;\n']);
 
 var _styledComponents = __webpack_require__(7);
 
@@ -1141,27 +1138,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Container = exports.Container = _styledComponents2.default.div(_templateObject);
+var User = exports.User = _styledComponents2.default.div(_templateObject);
 
-var Content = exports.Content = _styledComponents2.default.div(_templateObject2);
-
-var Navigation = exports.Navigation = _styledComponents2.default.div(_templateObject3);
-
-var User = exports.User = _styledComponents2.default.div(_templateObject4);
-
-var Pre = exports.Pre = _styledComponents2.default.pre(_templateObject5);
+var Pre = exports.Pre = _styledComponents2.default.pre(_templateObject2);
 ;
 
 var _temp = function () {
 	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
 		return;
 	}
-
-	__REACT_HOT_LOADER__.register(Container, 'Container', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Styles.jsx');
-
-	__REACT_HOT_LOADER__.register(Content, 'Content', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Styles.jsx');
-
-	__REACT_HOT_LOADER__.register(Navigation, 'Navigation', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Styles.jsx');
 
 	__REACT_HOT_LOADER__.register(User, 'User', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Styles.jsx');
 
@@ -1277,7 +1262,7 @@ module.exports = function(module) {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"name": "boiledeggs",
+	"name": "angularIssues",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -1515,7 +1500,6 @@ module.exports = require("webpack-hot-middleware");
 "use strict";
 
 
-// const npmEvent = process.env.npm_lifecycle_event;
 module.exports = __webpack_require__(41);
 ;
 
@@ -1534,7 +1518,6 @@ var _temp = function () {
 "use strict";
 
 
-/* eslint-disable import/no-extraneous-dependencies */
 var _require = __webpack_require__(4),
     env = _require.env;
 
@@ -1562,7 +1545,6 @@ var _temp = function () {
 "use strict";
 
 
-/* eslint-disable import/no-extraneous-dependencies */
 var webpack = __webpack_require__(14);
 var merge = __webpack_require__(15);
 var CompressionPlugin = __webpack_require__(43);
@@ -1653,7 +1635,6 @@ module.exports = require("compression-webpack-plugin");
 "use strict";
 
 
-/* eslint-disable import/no-extraneous-dependencies */
 var nodeExternals = __webpack_require__(45);
 var merge = __webpack_require__(15);
 
@@ -1717,7 +1698,6 @@ module.exports = require("webpack-node-externals");
 "use strict";
 
 
-/* eslint-disable import/no-extraneous-dependencies */
 var webpack = __webpack_require__(14);
 var merge = __webpack_require__(15);
 
@@ -1855,7 +1835,7 @@ var createHtml = function createHtml(_ref) {
 
 	var serializedState = (0, _serializeJavascript2.default)(initialState);
 
-	return '\n\t<!DOCTYPE html>\n\t<html>\n\t\t<head>\n\t\t\t<meta charset="utf-8" />\n\t\t\t<meta name="viewport" content="width=device-width, initial-scale=1">\n\t\t\t<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto" rel="stylesheet">\n\t\t\t<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>\n\t\t\t' + css + '\n\t\t\t<script>window.__INITIAL_STATE__=' + serializedState + '</script>\n\t\t\t<title>shitty blog</title>\n\t\t</head>\n\t\t<body>\n\t\t\t<div id="app">' + markup + '</div>\n\t\t\t<script src="/bundle.js"></script>\n\t\t</body>\n\t</html>\n\t';
+	return '\n\t<!DOCTYPE html>\n\t<html>\n\t\t<head>\n\t\t\t<meta charset="utf-8" />\n\t\t\t<meta name="viewport" content="width=device-width, initial-scale=1">\n\t\t\t<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto" rel="stylesheet">\n\t\t\t<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"></link>\n\t\t\t' + css + '\n\t\t\t<script>window.__INITIAL_STATE__=' + serializedState + '</script>\n\t\t\t<title>angular-issues</title>\n\t\t</head>\n\t\t<body>\n\t\t\t<div id="app">' + markup + '</div>\n\t\t\t<script src="/bundle.js"></script>\n\t\t</body>\n\t</html>\n\t';
 }; /* eslint-disable react/jsx-filename-extension */
 
 
@@ -1880,7 +1860,6 @@ var renderHtml = function renderHtml(req, res) {
 
 	return Promise.all(promises).then(function () {
 		var initialState = store.getState();
-		console.log(initialState, 'SDFJOSDLKJFLDSKFJLDKFLDSKFJLDSKJF');
 		var sheet = new _styledComponents.ServerStyleSheet();
 
 		var markup = (0, _server.renderToString)(_react2.default.createElement(
@@ -2356,8 +2335,6 @@ exports.getItemById = undefined;
 
 var _reducerCreator;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _utils = __webpack_require__(8);
 
 var _utils2 = _interopRequireDefault(_utils);
@@ -2382,11 +2359,8 @@ var handleReceiveItems = function handleReceiveItems() {
 	var ids = Array.isArray(result) ? result : [result];
 	var nextState = Object.assign({}, state);
 
-	return ids.reduce(function (acc, id, i, list) {
-		acc[id] = _extends({}, entities.items[id], {
-			previousIssue: list[i - 1],
-			nextIssue: list[i + 1]
-		});
+	return ids.reduce(function (acc, id) {
+		acc[id] = entities.items[id];
 
 		return acc;
 	}, nextState);
@@ -5452,7 +5426,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var View = function View(_ref) {
 	var issue = _ref.issue;
 
-	console.log(issue, 'why');
 
 	return _react2.default.createElement(
 		_base.View,
@@ -5465,10 +5438,7 @@ var View = function View(_ref) {
 		_react2.default.createElement(
 			_Navigation2.default,
 			null,
-			_react2.default.createElement(_Navigation4.default, {
-				previous: issue.previousIssue,
-				next: issue.nextIssue
-			})
+			_react2.default.createElement(_Navigation4.default, null)
 		)
 	);
 };
@@ -5915,10 +5885,6 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _FromRedux = __webpack_require__(5);
 
 var _Link = __webpack_require__(27);
@@ -5927,51 +5893,19 @@ var _Link2 = _interopRequireDefault(_Link);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var localEndpoint = function localEndpoint(id) {
-	return '/issue/' + id;
-};
-
-var Navigation = function Navigation(_ref) {
-	var previous = _ref.previous,
-	    next = _ref.next;
-	return [_react2.default.createElement(
-		_Link2.default,
-		{
-			key: 'previousIssue',
-			disabled: previous === null,
-			to: localEndpoint(previous)
-		},
-		'Previous Issue'
-	), _react2.default.createElement(
+var Navigation = function Navigation() {
+	return _react2.default.createElement(
 		_FromRedux.CurrentPage,
-		{ key: 'currentIssue' },
-		function (_ref2) {
-			var currentPage = _ref2.currentPage;
+		null,
+		function (_ref) {
+			var currentPage = _ref.currentPage;
 			return _react2.default.createElement(
 				_Link2.default,
 				{ to: '/issues?page=' + currentPage },
 				'Back to list'
 			);
 		}
-	), _react2.default.createElement(
-		_Link2.default,
-		{
-			key: 'nextIssue',
-			disabled: next === null,
-			to: localEndpoint(next)
-		},
-		'Next Issue'
-	)];
-};
-
-Navigation.propTypes = {
-	previous: _propTypes2.default.number,
-	next: _propTypes2.default.number
-};
-
-Navigation.defaultProps = {
-	previous: null,
-	next: null
+	);
 };
 
 var _default = Navigation;
@@ -5982,8 +5916,6 @@ var _temp = function () {
 	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
 		return;
 	}
-
-	__REACT_HOT_LOADER__.register(localEndpoint, 'localEndpoint', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Navigation/index.jsx');
 
 	__REACT_HOT_LOADER__.register(Navigation, 'Navigation', '/Users/Kidokeisuke/coiney/src/common/components/Issue/Navigation/index.jsx');
 
