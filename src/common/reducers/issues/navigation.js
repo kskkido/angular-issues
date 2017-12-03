@@ -30,5 +30,4 @@ export default reducer
 
 /* GETTERS */
 export const getCurrentPage = state => state.current
-export const getNextPage = state => state.next
 export const getLastPage = state => state.last
