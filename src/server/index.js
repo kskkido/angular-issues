@@ -16,7 +16,7 @@ export default app
 	.use(bodyParser.json())
 	.use(express.static(PATH_STATIC))
 
-	.use('/', (req, res) => {
+	.get('/', (req, res) => {
 		res.redirect('/issues?page=1')
 	})
 
