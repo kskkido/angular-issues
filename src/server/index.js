@@ -29,11 +29,6 @@ export default app
 
 	.use(express.static(PATH_STATIC))
 
-	.use((err, req, res) => {
-		console.error(err)
-		res.status(err.status || 500).send(err.message || 'Internal server error')
-	})
-
 if (module === require.main) {
 	const server = app.listen(
 		port,
