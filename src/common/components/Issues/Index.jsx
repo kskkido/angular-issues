@@ -20,7 +20,7 @@ Issues.propTypes = {
 Issues.initialAction = (url) => {
 	const page = parse(url, 'page')
 
-	return requestPage(page || '1')
+	return requestPage(page || 1)
 }
 
 export default Issues
