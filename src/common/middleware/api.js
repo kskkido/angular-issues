@@ -12,7 +12,7 @@ const apiMiddleware = ({ getState }) => next => (action) => {
 		} = action.payload
 
 		const state = getState()
-		console.log(endpoint, 'ENODIFJODIJFODIFJOSDIFJODSIFJOSIDJF')
+
 		/* don't fetch if it already exists or in the middle of fetching */
 		if (cache(state) || getFetchStatus(state, endpoint)) {
 			return Promise.resolve()
