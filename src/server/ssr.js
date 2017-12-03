@@ -45,7 +45,7 @@ const dispatchInitialActions = (store, req) =>
 		return promises
 	}, [])
 
-const renderHtml = (req, res) => {
+const renderHtml = (req, res, next) => {
 	const store = configureStore()
 	const promises = dispatchInitialActions(store, req)
 
@@ -77,6 +77,7 @@ const renderHtml = (req, res) => {
 
 			res.send(html)
 		})
+		.catch(next)
 }
 
 export default renderHtml

@@ -1,4 +1,4 @@
-import { join } from 'path'
+import path from 'path'
 import { port, root } from 'Root'
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -6,19 +6,28 @@ import ssr from './ssr'
 
 const app = express()
 
-const PATH_STATIC = join(root, 'dist')
+const PATH_STATIC = path.join(root, 'dist')
 
 export default app
 	.use(bodyParser.urlencoded({ extended: false }))
 	.use(bodyParser.json())
 
-	.use(express.static(PATH_STATIC))
-
 	.get('/', (req, res) => {
 		res.redirect('/issues?page=1')
 	})
 
-	.get('*', ssr)
+	.get('*', (req, res, next) => {
+		const exts = new Set(['.css', '.map', '.js'])
+		const ext = path.extname(req.url)
+
+		if (exts.has(ext)) {
+			return next()
+		}
+
+		return ssr(req, res, next)
+	})
+
+	.use(express.static(PATH_STATIC))
 
 	.use((err, req, res) => {
 		console.error(err)
