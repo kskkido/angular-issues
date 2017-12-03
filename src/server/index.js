@@ -10,8 +10,6 @@ const app = express()
 const PATH_STATIC = join(root, 'dist')
 
 export default app
-	.use(devMiddleware)
-
 	.use(bodyParser.urlencoded({ extended: false }))
 	.use(bodyParser.json())
 	.use(express.static(PATH_STATIC))
