@@ -50,6 +50,11 @@ const renderHtml = (req, res) => {
 	const store = configureStore()
 	const promises = dispatchInitialActions(store, req)
 
+	if (promises.length === 0) {
+		res.status(404).send('Not found')
+		return null
+	}
+
 	return Promise.all(promises)
 		.then(() => {
 			const initialState = store.getState()
