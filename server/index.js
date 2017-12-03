@@ -936,7 +936,7 @@ module.exports = {
 	get port() {
 		return env.PORT || 1337;
 	},
-	root: Object({"NODE_ENV":"production"}).CWD || process.cwd(),
+	root: process.cwd(),
 	package: pkg,
 	env: env
 };
