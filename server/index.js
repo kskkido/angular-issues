@@ -817,8 +817,10 @@ var SemanticLink = function SemanticLink(_ref) {
 	    to = _ref.to,
 	    RenderLink = _ref.RenderLink;
 	return !disabled ? _react2.default.createElement(
-		_reactRouterDom.Link,
+		RenderLink,
 		{
+			active: active,
+			as: _reactRouterDom.Link,
 			to: to
 		},
 		children
