@@ -10,11 +10,13 @@ const SemanticLink = ({
 	to,
 	RenderLink
 }) => !disabled ?
-	<Link
+	<RenderLink
+		active={active}
+		as={Link}
 		to={to}
 	>
 		{children}
-	</Link> :
+	</RenderLink> :
 	<RenderLink disabled>
 		{children}
 	</RenderLink>
