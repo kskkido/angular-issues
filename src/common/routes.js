@@ -1,6 +1,7 @@
 import Issues from './components/Issues'
 import Issue from './components/Issue'
 
+/* use to create route components and match url on server side for intial render */
 const routes = [
 	{
 		path: '/issues',
