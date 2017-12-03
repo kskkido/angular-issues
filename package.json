@@ -11,6 +11,9 @@
     "start-dev": "npm run build-dev & NODE_ENV=development nodemon ./server",
     "start-prod": "npm run build-prod & NODE_ENV=production npm run start"
   },
+  "engine": {
+    "yarn": "0.24.6"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

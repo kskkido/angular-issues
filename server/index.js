@@ -823,7 +823,7 @@ var Pre = exports.Pre = _styledComponents2.default.pre(_templateObject2);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(__dirname, module) {
+/* WEBPACK VAR INJECTION */(function(module) {
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -851,7 +851,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 
-var PATH_STATIC = _path2.default.join(__dirname, '..', '/dist');
+var PATH_STATIC = _path2.default.join(_Root.root, '/dist');
 
 exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).use(_express2.default.static(PATH_STATIC)).get('/', function (req, res) {
 	res.redirect('/issues?page=1');
@@ -873,7 +873,7 @@ if (module === __webpack_require__.c[__webpack_require__.s]) {
 		console.log('Listening on http://' + urlSafeHost + ':' + _Root.port);
 	});
 }
-/* WEBPACK VAR INJECTION */}.call(exports, "/", __webpack_require__(26)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)(module)))
 
 /***/ }),
 /* 26 */
@@ -959,6 +959,9 @@ module.exports = {
 		"start": "node ./server",
 		"start-dev": "npm run build-dev & NODE_ENV=development nodemon ./server",
 		"start-prod": "npm run build-prod & NODE_ENV=production npm run start"
+	},
+	"engine": {
+		"yarn": "0.24.6"
 	},
 	"keywords": [],
 	"author": "",
