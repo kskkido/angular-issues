@@ -856,9 +856,9 @@ var PATH_STATIC = _path2.default.join(_Root.root, 'dist');
 exports.default = app.use(_bodyParser2.default.urlencoded({ extended: false })).use(_bodyParser2.default.json()).get('/', function (req, res) {
 	res.redirect('/issues?page=1');
 }).get('*', function (req, res, next) {
-	var exts = new Set(['.css', '.map', '.js']);
+	var exts = new Set(['.css', '.gz', '.map', '.js']);
 	var ext = _path2.default.extname(req.url);
-	console.log(ext, 'dude');
+
 	if (exts.has(ext)) {
 		return next();
 	}

@@ -17,7 +17,7 @@ export default app
 	})
 
 	.get('*', (req, res, next) => {
-		const exts = new Set(['.css', '.map', '.js'])
+		const exts = new Set(['.css', '.gz', '.map', '.js'])
 		const ext = path.extname(req.url)
 
 		if (exts.has(ext)) {
