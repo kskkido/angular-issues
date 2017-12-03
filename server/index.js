@@ -1190,7 +1190,8 @@ var PATHS = {
 var commonConfig = {
 	output: {
 		path: PATHS.output,
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		publicPath: '/'
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', '*']
