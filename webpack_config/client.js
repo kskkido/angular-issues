@@ -13,6 +13,7 @@ const commonConfig = {
 	output: {
 		path: PATHS.output,
 		filename: 'bundle.js',
+		publicPath: 'dist/'
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', '*']
