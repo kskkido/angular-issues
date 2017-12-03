@@ -32,12 +32,18 @@ const getRange = (current, last) => {
 
 /**
  * returns an array of paginated labels based on github style pagination
- * @param {object} current Current page of pagination
+ * @param {object} rangeObj Object created by getRange
  * @param {string} last Last page of pagination
  * @returns {array} An array which will be used to generate paginated component
  */
-const getLabels = (current, last) => {
-	const { startPage, endPage, length } = 	getRange(current, last)
+const getLabels = (
+	{
+		startPage,
+		endPage,
+		length
+	},
+	last
+) => {
 	let labels = []
 
 	if (startPage !== 1) {
@@ -55,4 +61,9 @@ const getLabels = (current, last) => {
 	return labels
 }
 
-export default getLabels
+export default (current, last) => {
+	const range = getRange(current, last)
+	const labels = getLabels(range, last)
+
+	return labels
+}
