@@ -26,7 +26,7 @@ const getLastPage = (response) => {
 }
 
 /**
- * Standardizes paginated Api fetch requests
+ * Standardizes api fetch requests
  * Will camelize and extract next and last pages from response data
  * @param {object} schema Normalizr schema to convert response object
  * @param {string} endpoint Target Api endpoint
