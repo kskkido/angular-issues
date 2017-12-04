@@ -4,6 +4,7 @@ import Global from './global'
 
 injectGlobal`${Global}`
 
+/* basic style components of app */
 export const View = styled.div`
 	position: relative;
 	padding-top: 20px;

@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 /**
- * Extract a component's _meta object and optional key.
- * Handles literal _meta objects, classes with _meta, objects with _meta
+ * Converts native HOCS into function as children components
  * @param {object} props Component props
  * @returns {object|function} returns component by passing props to children as parameters
  */

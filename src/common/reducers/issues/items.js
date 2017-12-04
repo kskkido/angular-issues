@@ -1,5 +1,5 @@
 import reducerCreator from 'Reducers/utils'
-import { receivePage, receiveIssue } from 'Actions/issues'
+import * as issuesActions from 'Actions/issues'
 
 /* STATE */
 const initialState = {}
@@ -25,8 +25,8 @@ const handleReceiveItems = (state = initialState, action) => {
 const reducer = reducerCreator(
 	initialState,
 	{
-		[receivePage.type]: handleReceiveItems,
-		[receiveIssue.type]: handleReceiveItems
+		[issuesActions.receivePage.type]: handleReceiveItems,
+		[issuesActions.receiveIssue.type]: handleReceiveItems
 	}
 )
 
