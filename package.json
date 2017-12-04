@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers --watch-extensions js,jsx tests/**/*.test.js",
-    "build-prod": "NODE_ENV=production webpack",
+    "build-prod": "NODE_ENV=production webpack --watch",
     "build-dev": "NODE_ENV=development webpack",
     "start": "node ./server",
     "start-dev": "npm run build-dev & NODE_ENV=development nodemon ./server",

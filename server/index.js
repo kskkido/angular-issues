@@ -1273,7 +1273,7 @@ module.exports = {
 	"main": "index.js",
 	"scripts": {
 		"test": "mocha --compilers --watch-extensions js,jsx tests/**/*.test.js",
-		"build-prod": "NODE_ENV=production webpack",
+		"build-prod": "NODE_ENV=production webpack --watch",
 		"build-dev": "NODE_ENV=development webpack",
 		"start": "node ./server",
 		"start-dev": "npm run build-dev & NODE_ENV=development nodemon ./server",
@@ -1549,7 +1549,7 @@ var commonConfig = {
 	output: {
 		path: PATHS.output,
 		filename: 'bundle.js',
-		publicPath: 'dist/'
+		publicPath: '/dist/'
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', '*']
@@ -1958,6 +1958,7 @@ var _View2 = _interopRequireDefault(_View);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* list repo issues */
 /* redirects to root if query does not contain page property */
 var Issues = function Issues(_ref) {
 	var location = _ref.location;
@@ -2911,6 +2912,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FetchStatusWithError = (0, _FromRedux.merge)(_FromRedux.FetchStatus, _FromRedux.DispatchError);
 
 /* uses endpoint to subscribe to fetch status */
+/* checks redux state before rendering its chidlren */
 
 var Fetch = function (_Component) {
 	_inherits(Fetch, _Component);
@@ -5609,7 +5611,6 @@ var Article = function Article(_ref) {
 				user.login
 			)
 		),
-		',',
 		_react2.default.createElement(_Markdown2.default, { source: source })
 	);
 };

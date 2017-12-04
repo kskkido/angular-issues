@@ -7,6 +7,7 @@ import ErrorComponent from './Error'
 const FetchStatusWithError = merge(FetchStatus, DispatchError)
 
 /* uses endpoint to subscribe to fetch status */
+/* checks redux state before rendering its chidlren */
 class Fetch extends Component {
 	static propTypes = {
 		children: PropTypes.node.isRequired,

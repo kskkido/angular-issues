@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "621a154914442b20a0d6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d0a0967720126b754d87"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -699,7 +699,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "dist/";
+/******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -89982,6 +89982,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FetchStatusWithError = (0, _FromRedux.merge)(_FromRedux.FetchStatus, _FromRedux.DispatchError);
 
 /* uses endpoint to subscribe to fetch status */
+/* checks redux state before rendering its chidlren */
 
 var Fetch = function (_Component) {
 	_inherits(Fetch, _Component);
@@ -90372,7 +90373,6 @@ var Article = function Article(_ref) {
 				user.login
 			)
 		),
-		',',
 		_react2.default.createElement(_Markdown2.default, { source: source })
 	);
 };
@@ -91549,6 +91549,7 @@ var _View2 = _interopRequireDefault(_View);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* list repo issues */
 /* redirects to root if query does not contain page property */
 var Issues = function Issues(_ref) {
 	var location = _ref.location;
