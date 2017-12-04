@@ -4,18 +4,17 @@ import { Icon } from 'semantic-ui-react'
 import { User } from '../Styles'
 import Markdown from './Markdown'
 
-const Article = ({ source, user }) => [
-	<User key="user_label">
-		<Icon name="user" />
-		<a href={user.htmlUrl} target="blank">
-			{user.login}
-		</a>
-	</User>,
-	<Markdown
-		key="markdown"
-		source={source}
-	/>
-]
+const Article = ({ source, user }) => (
+	<div>
+		<User>
+			<Icon name="user" />
+			<a href={user.htmlUrl} target="blank">
+				{user.login}
+			</a>
+		</User>
+		<Markdown source={source} />
+	</div>
+)
 
 Article.propTypes = {
 	source: PropTypes.string.isRequired,

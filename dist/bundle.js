@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d52a6bec3edd8b7c38d7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "621a154914442b20a0d6"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -89362,6 +89362,7 @@ var _routes2 = _interopRequireDefault(_routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* naively redirects all non matching requests to /issues?page=1 */
 var App = function App() {
 	var Routes = _routes2.default.map(function (route) {
 		return _react2.default.createElement(_reactRouterDom.Route, _extends({ key: route.path }, route));
@@ -90283,8 +90284,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 /**
- * Extract a component's _meta object and optional key.
- * Handles literal _meta objects, classes with _meta, objects with _meta
+ * Converts native HOCS into function as children components
  * @param {object} props Component props
  * @returns {object|function} returns component by passing props to children as parameters
  */
@@ -90359,19 +90359,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Article = function Article(_ref) {
 	var source = _ref.source,
 	    user = _ref.user;
-	return [_react2.default.createElement(
-		_Styles.User,
-		{ key: 'user_label' },
-		_react2.default.createElement(_semanticUiReact.Icon, { name: 'user' }),
+	return _react2.default.createElement(
+		'div',
+		null,
 		_react2.default.createElement(
-			'a',
-			{ href: user.htmlUrl, target: 'blank' },
-			user.login
-		)
-	), _react2.default.createElement(_Markdown2.default, {
-		key: 'markdown',
-		source: source
-	})];
+			_Styles.User,
+			null,
+			_react2.default.createElement(_semanticUiReact.Icon, { name: 'user' }),
+			_react2.default.createElement(
+				'a',
+				{ href: user.htmlUrl, target: 'blank' },
+				user.login
+			)
+		),
+		',',
+		_react2.default.createElement(_Markdown2.default, { source: source })
+	);
 };
 
 Article.propTypes = {
@@ -91751,8 +91754,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* global TweenLite */
-
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /* custom scroll to the top of viewport on every udpate */
 var ScrollTop = function (_Component) {
@@ -91994,7 +91996,7 @@ var getLastPage = function getLastPage(response) {
 };
 
 /**
- * Standardizes paginated Api fetch requests
+ * Standardizes api fetch requests
  * Will camelize and extract next and last pages from response data
  * @param {object} schema Normalizr schema to convert response object
  * @param {string} endpoint Target Api endpoint
@@ -92398,6 +92400,10 @@ var _utils2 = _interopRequireDefault(_utils);
 
 var _issues = __webpack_require__("./src/common/actions/issues/index.js");
 
+var issuesActions = _interopRequireWildcard(_issues);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -92424,7 +92430,7 @@ var handleReceiveItems = function handleReceiveItems() {
 };
 
 /* REDUCER */
-var reducer = (0, _utils2.default)(initialState, (_reducerCreator = {}, _defineProperty(_reducerCreator, _issues.receivePage.type, handleReceiveItems), _defineProperty(_reducerCreator, _issues.receiveIssue.type, handleReceiveItems), _reducerCreator));
+var reducer = (0, _utils2.default)(initialState, (_reducerCreator = {}, _defineProperty(_reducerCreator, issuesActions.receivePage.type, handleReceiveItems), _defineProperty(_reducerCreator, issuesActions.receiveIssue.type, handleReceiveItems), _reducerCreator));
 
 var _default = reducer;
 exports.default = _default;
@@ -92669,6 +92675,7 @@ var _Issue2 = _interopRequireDefault(_Issue);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* use to create route components and match url on server side for intial render */
 var routes = [{
 	path: '/issues',
 	component: _Issues2.default
@@ -92726,6 +92733,7 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 (0, _styledComponents.injectGlobal)(_templateObject, _global2.default);
 
+/* basic style components of app */
 var View = exports.View = _styledComponents2.default.div(_templateObject2);
 
 var Content = exports.Content = _styledComponents2.default.div(_templateObject3);
@@ -92798,12 +92806,11 @@ Object.defineProperty(exports, "__esModule", {
 var ROOT = 'https://api.github.com/repos/angular/protractor/issues';
 var LIMIT = 10;
 
-var pageEndpoint = exports.pageEndpoint = function pageEndpoint(page) {
-  return ROOT + '?page=' + page + '&per_page=' + LIMIT;
-};
-
 var issueEndpoint = exports.issueEndpoint = function issueEndpoint(issueId) {
   return ROOT + '/' + issueId;
+};
+var pageEndpoint = exports.pageEndpoint = function pageEndpoint(page) {
+  return ROOT + '?page=' + page + '&per_page=' + LIMIT;
 };
 ;
 
@@ -92812,9 +92819,9 @@ var _temp = function () {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(pageEndpoint, 'pageEndpoint', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
-
   __REACT_HOT_LOADER__.register(issueEndpoint, 'issueEndpoint', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
+
+  __REACT_HOT_LOADER__.register(pageEndpoint, 'pageEndpoint', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
 
   __REACT_HOT_LOADER__.register(ROOT, 'ROOT', '/Users/Kidokeisuke/coiney/src/common/utils/endpoint.js');
 
