@@ -2968,11 +2968,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var FetchStatusWithError = (0, _FromRedux.merge)(_FromRedux.FetchStatus, _FromRedux.DispatchError);
-
 /* uses endpoint to subscribe to fetch status */
 /* checks redux state before rendering its chidlren */
-
 var Fetch = function (_Component) {
 	_inherits(Fetch, _Component);
 
@@ -3018,23 +3015,18 @@ var Fetch = function (_Component) {
 
 
 			return _react2.default.createElement(
-				FetchStatusWithError,
+				_FromRedux.FetchStatus,
 				{ endpoint: endpoint },
 				function (_ref2) {
 					var error = _ref2.error,
-					    fetching = _ref2.fetching,
-					    dispatchError = _ref2.dispatchError;
+					    fetching = _ref2.fetching;
 
 					if (error) {
 						return _react2.default.createElement(RenderError, { error: error, onRetry: fetch });
 					}
 
 					if (shouldFetch || fetching) {
-						var onTimeout = function onTimeout() {
-							return dispatchError('Api call timed out!');
-						};
-
-						return _react2.default.createElement(RenderLoad, { timeout: 8000, onTimeout: onTimeout });
+						return _react2.default.createElement(RenderLoad, null);
 					}
 
 					return children;
@@ -3067,8 +3059,6 @@ var _temp = function () {
 		return;
 	}
 
-	__REACT_HOT_LOADER__.register(FetchStatusWithError, 'FetchStatusWithError', '/Users/Kidokeisuke/coiney/src/common/components/Fetch/index.jsx');
-
 	__REACT_HOT_LOADER__.register(Fetch, 'Fetch', '/Users/Kidokeisuke/coiney/src/common/components/Fetch/index.jsx');
 
 	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/Fetch/index.jsx');
@@ -3087,15 +3077,9 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _semanticUiReact = __webpack_require__(2);
 
@@ -3105,58 +3089,18 @@ var _Overlay2 = _interopRequireDefault(_Overlay);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Load = function (_Component) {
-	_inherits(Load, _Component);
-
-	function Load() {
-		_classCallCheck(this, Load);
-
-		return _possibleConstructorReturn(this, (Load.__proto__ || Object.getPrototypeOf(Load)).apply(this, arguments));
-	}
-
-	_createClass(Load, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			var _props = this.props,
-			    onTimeout = _props.onTimeout,
-			    timeout = _props.timeout;
-
-
-			this.timeout = setTimeout(onTimeout, timeout);
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			clearTimeout(this.timeout);
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				_Overlay2.default,
-				null,
-				_react2.default.createElement(
-					_semanticUiReact.Loader,
-					null,
-					'Loading'
-				)
-			);
-		}
-	}]);
-
-	return Load;
-}(_react.Component);
-
-Load.propTypes = {
-	timeout: _propTypes2.default.number.isRequired,
-	onTimeout: _propTypes2.default.func.isRequired
+var Load = function Load() {
+	return _react2.default.createElement(
+		_Overlay2.default,
+		null,
+		_react2.default.createElement(
+			_semanticUiReact.Loader,
+			null,
+			'Loading'
+		)
+	);
 };
+
 var _default = Load;
 exports.default = _default;
 ;
@@ -5572,9 +5516,7 @@ var Content = function Content(_ref) {
 
 	return _react2.default.createElement(
 		_semanticUiReact.Container,
-		{
-			text: true
-		},
+		{ text: true },
 		_react2.default.createElement(_semanticUiReact.Divider, { hidden: true }),
 		_react2.default.createElement(_Title2.default, {
 			number: number,
@@ -6123,7 +6065,7 @@ var apiMiddleware = function apiMiddleware(_ref) {
 				return (0, _utils2.default)(schema, endpoint).then(function (res) {
 					next(onSuccess(res, endpoint));
 					next(fetchActions.successFetch(endpoint));
-				}, function (error) {
+				}).catch(function (error) {
 					return next(fetchActions.failureFetch(error, endpoint));
 				});
 			}
@@ -6206,19 +6148,28 @@ var getLastPage = function getLastPage(response) {
  * @returns {object|error} normalized response data
  */
 var fetch = function fetch(schema, endpoint) {
-	return _axios2.default.get(endpoint).then(function (response) {
-		if (response.statusText.toUpperCase() !== 'OK') {
-			return Promise.reject(new Error('The api fetch request returned a funky value'));
-		}
+	return new Promise(function (resolve, reject) {
+		var timeout = setTimeout(reject, 10000, 'The api fetch timed out');
 
-		if (response.status !== 204 && empty(response.data)) {
-			return Promise.reject(new Error('No such api endpoint'));
-		}
+		_axios2.default.get(endpoint).then(function (response) {
+			clearInterval(timeout);
 
-		var last = getLastPage(response);
-		var camelized = (0, _camelize2.default)(response.data);
+			if (response.statusText.toUpperCase() !== 'OK') {
+				reject(new Error('The api fetch request returned a funky value'));
+			}
 
-		return Object.assign({}, (0, _normalizr.normalize)(camelized, schema), { last: last });
+			if (response.status !== 204 && empty(response.data)) {
+				reject(new Error('No such api endpoint'));
+			}
+
+			var last = getLastPage(response);
+			var camelized = (0, _camelize2.default)(response.data);
+
+			resolve(Object.assign({}, (0, _normalizr.normalize)(camelized, schema), { last: last }));
+		}).catch(function (err) {
+			clearInterval(timeout);
+			reject(err);
+		});
 	});
 };
 

@@ -33,24 +33,34 @@ const getLastPage = (response) => {
  * @returns {object|error} normalized response data
  */
 const fetch = (schema, endpoint) =>
-	axios.get(endpoint)
-		.then((response) => {
-			if (response.statusText.toUpperCase() !== 'OK') {
-				return Promise.reject(new Error('The api fetch request returned a funky value'))
-			}
+	new Promise((resolve, reject) => {
+		const timeout = setTimeout(reject, 8000, 'The api fetch timed out')
 
-			if (response.status !== 204 && empty(response.data)) {
-				return Promise.reject(new Error('No such api endpoint'))
-			}
+		axios.get(endpoint)
+			.then((response) => {
+				clearInterval(timeout)
 
-			const last = getLastPage(response)
-			const camelized = camelize(response.data)
+				if (response.statusText.toUpperCase() !== 'OK') {
+					reject(new Error('The api fetch request returned a funky value'))
+				}
 
-			return Object.assign(
-				{},
-				normalize(camelized, schema),
-				{ last }
-			)
-		})
+				if (response.status !== 204 && empty(response.data)) {
+					reject(new Error('No such api endpoint'))
+				}
+
+				const last = getLastPage(response)
+				const camelized = camelize(response.data)
+
+				resolve(Object.assign(
+					{},
+					normalize(camelized, schema),
+					{ last }
+				))
+			})
+			.catch((err) => {
+				clearInterval(timeout)
+				reject(err)
+			})
+	})
 
 export default fetch

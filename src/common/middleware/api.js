@@ -21,13 +21,11 @@ const apiMiddleware = ({ getState }) => next => (action) => {
 		next(fetchActions.requestFetch(endpoint))
 
 		return fetch(schema, endpoint)
-			.then(
-				(res) => {
-					next(onSuccess(res, endpoint))
-					next(fetchActions.successFetch(endpoint))
-				},
-				error => next(fetchActions.failureFetch(error, endpoint))
-			)
+			.then((res) => {
+				next(onSuccess(res, endpoint))
+				next(fetchActions.successFetch(endpoint))
+			})
+			.catch(error => next(fetchActions.failureFetch(error, endpoint)))
 	}
 
 	return next(action)

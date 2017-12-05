@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { FetchStatus, DispatchError, merge } from 'Components/FromRedux'
+import { FetchStatus } from 'Components/FromRedux'
 import LoaderComponent from './Loader'
 import ErrorComponent from './Error'
-
-const FetchStatusWithError = merge(FetchStatus, DispatchError)
 
 /* uses endpoint to subscribe to fetch status */
 /* checks redux state before rendering its chidlren */
@@ -48,21 +46,19 @@ class Fetch extends Component {
 		} = this.props
 
 		return (
-			<FetchStatusWithError endpoint={endpoint}>
-				{({ error, fetching, dispatchError }) => {
+			<FetchStatus endpoint={endpoint}>
+				{({ error, fetching }) => {
 					if (error) {
 						return <RenderError error={error} onRetry={fetch} />
 					}
 
 					if (shouldFetch || fetching) {
-						const onTimeout = () => dispatchError('Api call timed out!')
-
-						return <RenderLoad timeout={8000} onTimeout={onTimeout} />
+						return <RenderLoad />
 					}
 
 					return children
 				}}
-			</FetchStatusWithError>
+			</FetchStatus>
 		)
 	}
 }

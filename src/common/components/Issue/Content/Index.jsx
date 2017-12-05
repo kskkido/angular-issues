@@ -15,9 +15,7 @@ const Content = ({ issue }) => {
 	} = issue
 
 	return (
-		<Container
-			text
-		>
+		<Container text>
 			<Divider hidden />
 			<Title
 				number={number}
