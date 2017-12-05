@@ -11,7 +11,6 @@ const View = ({ page }) => (
 	/>
 )
 
-
 View.propTypes = {
 	page: PropTypes.number.isRequired
 }
