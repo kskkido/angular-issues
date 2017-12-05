@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d0a0967720126b754d87"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "db9b84abc727ed3ec932"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -90853,44 +90853,30 @@ var _propTypes = __webpack_require__("./node_modules/prop-types/index.js");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _base = __webpack_require__("./src/common/styles/base.jsx");
+var _View = __webpack_require__("./src/common/components/View.jsx");
 
-var _Content = __webpack_require__("./src/common/components/Content.jsx");
+var _View2 = _interopRequireDefault(_View);
+
+var _Content = __webpack_require__("./src/common/components/Issue/Content/index.jsx");
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _Navigation = __webpack_require__("./src/common/components/Navigation.jsx");
+var _Navigation = __webpack_require__("./src/common/components/Issue/Navigation/index.jsx");
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
-
-var _Content3 = __webpack_require__("./src/common/components/Issue/Content/index.jsx");
-
-var _Content4 = _interopRequireDefault(_Content3);
-
-var _Navigation3 = __webpack_require__("./src/common/components/Issue/Navigation/index.jsx");
-
-var _Navigation4 = _interopRequireDefault(_Navigation3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var View = function View(_ref) {
 	var issue = _ref.issue;
-
-
-	return _react2.default.createElement(
-		_base.View,
-		null,
-		_react2.default.createElement(
-			_Content2.default,
-			null,
-			_react2.default.createElement(_Content4.default, { issue: issue })
-		),
-		_react2.default.createElement(
-			_Navigation2.default,
-			null,
-			_react2.default.createElement(_Navigation4.default, null)
-		)
-	);
+	return _react2.default.createElement(_View2.default, {
+		RenderContent: function RenderContent() {
+			return _react2.default.createElement(_Content2.default, { issue: issue });
+		},
+		RenderNavigation: function RenderNavigation() {
+			return _react2.default.createElement(_Navigation2.default, null);
+		}
+	});
 };
 
 View.propTypes = {
@@ -91457,42 +91443,30 @@ var _propTypes = __webpack_require__("./node_modules/prop-types/index.js");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _base = __webpack_require__("./src/common/styles/base.jsx");
+var _View = __webpack_require__("./src/common/components/View.jsx");
 
-var _Content = __webpack_require__("./src/common/components/Content.jsx");
+var _View2 = _interopRequireDefault(_View);
+
+var _Content = __webpack_require__("./src/common/components/Issues/Content/index.jsx");
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _Navigation = __webpack_require__("./src/common/components/Navigation.jsx");
+var _Navigation = __webpack_require__("./src/common/components/Issues/Navigation/index.jsx");
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
-
-var _Content3 = __webpack_require__("./src/common/components/Issues/Content/index.jsx");
-
-var _Content4 = _interopRequireDefault(_Content3);
-
-var _Navigation3 = __webpack_require__("./src/common/components/Issues/Navigation/index.jsx");
-
-var _Navigation4 = _interopRequireDefault(_Navigation3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var View = function View(_ref) {
 	var page = _ref.page;
-	return _react2.default.createElement(
-		_base.View,
-		null,
-		_react2.default.createElement(
-			_Content2.default,
-			null,
-			_react2.default.createElement(_Content4.default, { page: page })
-		),
-		_react2.default.createElement(
-			_Navigation2.default,
-			null,
-			_react2.default.createElement(_Navigation4.default, { page: page })
-		)
-	);
+	return _react2.default.createElement(_View2.default, {
+		RenderContent: function RenderContent() {
+			return _react2.default.createElement(_Content2.default, { page: page });
+		},
+		RenderNavigation: function RenderNavigation() {
+			return _react2.default.createElement(_Navigation2.default, { page: page });
+		}
+	});
 };
 
 View.propTypes = {
@@ -91802,6 +91776,78 @@ var _temp = function () {
 	__REACT_HOT_LOADER__.register(ScrollTop, 'ScrollTop', '/Users/Kidokeisuke/coiney/src/common/components/ScrollTop.jsx');
 
 	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/ScrollTop.jsx');
+}();
+
+;
+
+/***/ }),
+
+/***/ "./src/common/components/View.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__("./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__("./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _base = __webpack_require__("./src/common/styles/base.jsx");
+
+var _Content = __webpack_require__("./src/common/components/Content.jsx");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+var _Navigation = __webpack_require__("./src/common/components/Navigation.jsx");
+
+var _Navigation2 = _interopRequireDefault(_Navigation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var View = function View(_ref) {
+	var RenderContent = _ref.RenderContent,
+	    RenderNavigation = _ref.RenderNavigation;
+	return _react2.default.createElement(
+		_base.View,
+		null,
+		_react2.default.createElement(
+			_Content2.default,
+			null,
+			_react2.default.createElement(RenderContent, null)
+		),
+		_react2.default.createElement(
+			_Navigation2.default,
+			null,
+			_react2.default.createElement(RenderNavigation, null)
+		)
+	);
+};
+
+View.propTypes = {
+	RenderContent: _propTypes2.default.func.isRequired,
+	RenderNavigation: _propTypes2.default.func.isRequired
+};
+
+var _default = View;
+exports.default = _default;
+;
+
+var _temp = function () {
+	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+		return;
+	}
+
+	__REACT_HOT_LOADER__.register(View, 'View', '/Users/Kidokeisuke/coiney/src/common/components/View.jsx');
+
+	__REACT_HOT_LOADER__.register(_default, 'default', '/Users/Kidokeisuke/coiney/src/common/components/View.jsx');
 }();
 
 ;
